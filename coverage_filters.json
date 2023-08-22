@@ -1,0 +1,12 @@
+{
+    "documentation": "https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.2/manual/CoverageBatchmode.html",
+    "assembliesInclude": [
+    ],
+    "assembliesExclude": [
+    ],
+    "pathsInclude": [
+        "**/DataCenter/**"
+    ],
+    "pathsExclude": [
+    ]
+}
