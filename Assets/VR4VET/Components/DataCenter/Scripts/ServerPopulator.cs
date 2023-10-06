@@ -127,6 +127,7 @@ public class ServerPopulator : MonoBehaviour
         {
             HddComponent hddComponent = this.CreateHddComponent();
             slot.TargetComponent = slot.Component = hddComponent;
+            hddComponent.GetComponent<GreenLightLogic>().TurnControlLightOn();
         }
     }
 
