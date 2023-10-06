@@ -19765,6 +19765,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Server 4.1
       objectReference: {fileID: 0}
+    - target: {fileID: 5574881860909099987, guid: a02f85bc4b88cc84dba5712caa684d39,
+        type: 3}
+      propertyPath: OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574881860909099987, guid: a02f85bc4b88cc84dba5712caa684d39,
+        type: 3}
+      propertyPath: OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1797028410}
+    - target: {fileID: 5574881860909099987, guid: a02f85bc4b88cc84dba5712caa684d39,
+        type: 3}
+      propertyPath: OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_material
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574881860909099987, guid: a02f85bc4b88cc84dba5712caa684d39,
+        type: 3}
+      propertyPath: OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Renderer, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574881860909099987, guid: a02f85bc4b88cc84dba5712caa684d39,
+        type: 3}
+      propertyPath: OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Material, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6173480833942019337, guid: a02f85bc4b88cc84dba5712caa684d39,
         type: 3}
       propertyPath: m_Name
@@ -20453,6 +20478,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3831159515952990275, guid: 3459fea7d3697ea47afd34ad2b06f3ae,
     type: 3}
   m_PrefabInstance: {fileID: 1773546389}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1797028410 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2797572593870425697, guid: a02f85bc4b88cc84dba5712caa684d39,
+    type: 3}
+  m_PrefabInstance: {fileID: 1593867412}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1835732745
 GameObject:
