@@ -30,6 +30,7 @@ namespace DataCenter.HardwareProblems
     using DataCenter.Events;
     using Tablet;
     using UnityEngine;
+    using Task;
 
     /// <summary>
     /// A concrete class that represents a hardware problem type where the player has to remove
@@ -40,12 +41,12 @@ namespace DataCenter.HardwareProblems
         /// <summary>
         /// A dictionary that maps HDD slots to activities where the player has to remove the broken hard disk drives.
         /// </summary>
-        private readonly Dictionary<HardwareComponentSlot<HddComponent>, Activity> slotToRemoveActivity = new();
+        private readonly Dictionary<HardwareComponentSlot<HddComponent>, Subtask> slotToRemoveActivity = new();
 
         /// <summary>
         /// A dictionary that maps HDD slots to activities where the player has to install replacement hard disk drives.
         /// </summary>
-        private readonly Dictionary<HardwareComponentSlot<HddComponent>, Activity> slotToInstallActivity = new();
+        private readonly Dictionary<HardwareComponentSlot<HddComponent>, Subtask> slotToInstallActivity = new();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReplaceBrokenHdd"/> class.
@@ -62,25 +63,29 @@ namespace DataCenter.HardwareProblems
 
             this.Slots = slots;
 
-            foreach (var slot in slots)
-            {
-                Activity activity = new()
-                {
-                    aktivitetName = $"Remove broken HDD from {slot.name}.",
-                };
-                this.Activities.Add(activity);
-                this.slotToRemoveActivity.Add(slot, activity);
-            }
+            //foreach (var slot in slots)
+            //{
+            //    Activity activity = new()
+            //    {
+            //        aktivitetName = $"Remove broken HDD from {slot.name}.",
+            //    };
+            //    this.Activities.Add(activity);
+            //    this.slotToRemoveActivity.Add(slot, activity);
+            //}
 
-            foreach (var slot in slots)
-            {
-                Activity activity = new()
-                {
-                    aktivitetName = $"Install replacement HDD into {slot.name}.",
-                };
-                this.Activities.Add(activity);
-                this.slotToInstallActivity.Add(slot, activity);
-            }
+            //foreach (var slot in slots)
+            //{
+            //    Activity activity = new()
+            //    {
+            //        aktivitetName = $"Install replacement HDD into {slot.name}.",
+            //    };
+            //    this.Activities.Add(activity);
+            //    this.slotToInstallActivity.Add(slot, activity);
+            //}
+
+            // TODO: Create steps for replacing broken HDDs
+
+            Debug.Log("Still need to create steps for replacing broken HDDs");
         }
 
         /// <summary>
@@ -207,21 +212,24 @@ namespace DataCenter.HardwareProblems
                 throw new ArgumentException("The component is null.");
             }
 
-            // If the newly installed HDD is not broken, the activity of installing replacement HDD is completed.
-            this.slotToInstallActivity
-                .Where(slotToActivity => slotToActivity.Key == e.Slot)
-                .Where(_ => !e.Component.IsBroken)
-                .Select(slotToActivity => slotToActivity.Value)
-                .ToList()
-                .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, true));
+            //// If the newly installed HDD is not broken, the activity of installing replacement HDD is completed.
+            //this.slotToInstallActivity
+            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
+            //    .Where(_ => !e.Component.IsBroken)
+            //    .Select(slotToActivity => slotToActivity.Value)
+            //    .ToList()
+            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, true));
 
-            // If the newly installed HDD is broken, the activity of removing the broken HDD is uncompleted.
-            this.slotToRemoveActivity
-                .Where(slotToActivity => slotToActivity.Key == e.Slot)
-                .Where(_ => e.Component.IsBroken)
-                .Select(slotToActivity => slotToActivity.Value)
-                .ToList()
-                .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, false));
+            //// If the newly installed HDD is broken, the activity of removing the broken HDD is uncompleted.
+            //this.slotToRemoveActivity
+            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
+            //    .Where(_ => e.Component.IsBroken)
+            //    .Select(slotToActivity => slotToActivity.Value)
+            //    .ToList()
+            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, false));
+
+            // TODO: Set slot to install and slot to remove to true or false in HDD
+            Debug.Log("Set slot to install and slot to remove to true or false in HDD");
         }
 
         /// <summary>
@@ -240,20 +248,23 @@ namespace DataCenter.HardwareProblems
             }
 
             // If the removed HDD is broken, the activity of removing the RAM module is completed.
-            this.slotToRemoveActivity
-                .Where(slotToActivity => slotToActivity.Key == e.Slot)
-                .Where(_ => e.Component.IsBroken)
-                .Select(slotToActivity => slotToActivity.Value)
-                .ToList()
-                .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, true));
+            //this.slotToRemoveActivity
+            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
+            //    .Where(_ => e.Component.IsBroken)
+            //    .Select(slotToActivity => slotToActivity.Value)
+            //    .ToList()
+            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, true));
 
-            // If the removed HDD is not broken, the activity of installing the replacement HDD is uncompleted.
-            this.slotToInstallActivity
-                .Where(slotToActivity => slotToActivity.Key == e.Slot)
-                .Where(_ => !e.Component.IsBroken)
-                .Select(slotToActivity => slotToActivity.Value)
-                .ToList()
-                .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, false));
+            //// If the removed HDD is not broken, the activity of installing the replacement HDD is uncompleted.
+            //this.slotToInstallActivity
+            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
+            //    .Where(_ => !e.Component.IsBroken)
+            //    .Select(slotToActivity => slotToActivity.Value)
+            //    .ToList()
+            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, false));
+
+            // TODO: slot to remove and slot to install in replace broken hdd
+            Debug.Log("still need to slot to remove and slot to install in replace broken hdd");
         }
     }
 }

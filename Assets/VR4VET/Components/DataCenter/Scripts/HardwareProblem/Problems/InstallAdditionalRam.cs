@@ -29,6 +29,8 @@ namespace DataCenter.HardwareProblems
     using System.Linq;
     using DataCenter.Events;
     using Tablet;
+    using Task;
+    using UnityEngine;
 
     /// <summary>
     /// A concrete class that represents a hardware problem type where the player has to install
@@ -39,7 +41,7 @@ namespace DataCenter.HardwareProblems
         /// <summary>
         /// A dictionary that maps RAM slots to activities.
         /// </summary>
-        private readonly Dictionary<HardwareComponentSlot<RamComponent>, Activity> slotToActivity = new();
+        private readonly Dictionary<HardwareComponentSlot<RamComponent>, Subtask> slotToActivity = new();
 
         /// <summary>
         /// The capacity of the RAM modules that are already installed and still need to be installed.
@@ -63,16 +65,19 @@ namespace DataCenter.HardwareProblems
             this.Slots = slots;
             this.ramModuleCapacity = ramModuleCapacity;
 
-            foreach (var slot in slots)
-            {
-                Activity activity = new()
-                {
-                    aktivitetName = $"Install {ramModuleCapacity} GiB RAM into {slot.name}.",
-                    AktivitetIsCompeleted = false,
-                };
-                this.Activities.Add(activity);
-                this.slotToActivity.Add(slot, activity);
-            }
+            //foreach (var slot in slots)
+            //{
+            //    Activity activity = new()
+            //    {
+            //        aktivitetName = $"Install {ramModuleCapacity} GiB RAM into {slot.name}.",
+            //        AktivitetIsCompeleted = false,
+            //    };
+            //    this.Activities.Add(activity);
+            //    this.slotToActivity.Add(slot, activity);
+            //}
+
+            // TODO: create steps for installing RAM
+            Debug.Log("Still need to create steps to install additional RAM");
         }
 
         /// <summary>
@@ -191,11 +196,14 @@ namespace DataCenter.HardwareProblems
             }
 
             // TODO: Check if the RAM module is the correct capacity
-            this.slotToActivity
-                .Where(slotToActivity => slotToActivity.Key == e.Slot)
-                .Select(slotToActivity => slotToActivity.Value)
-                .ToList()
-                .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, true));
+            //this.slotToActivity
+            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
+            //    .Select(slotToActivity => slotToActivity.Value)
+            //    .ToList()
+            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, true));
+
+            // TODO: set slot to activity to true
+            Debug.Log("Still need to set slot to activity to true!");
         }
 
         /// <summary>
@@ -213,11 +221,14 @@ namespace DataCenter.HardwareProblems
                 throw new ArgumentException("The component is null.");
             }
 
-            this.slotToActivity
-                .Where(slotToActivity => slotToActivity.Key == e.Slot)
-                .Select(slotToActivity => slotToActivity.Value)
-                .ToList()
-                .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, false));
+            //this.slotToActivity
+            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
+            //    .Select(slotToActivity => slotToActivity.Value)
+            //    .ToList()
+            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, false));
+
+            // TODO: Set slot to activity to false
+            Debug.Log("Still need to set slot to activity to false!");
         }
 
         /// <inheritdoc/>

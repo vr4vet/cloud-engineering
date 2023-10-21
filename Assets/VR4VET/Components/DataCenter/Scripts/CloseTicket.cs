@@ -29,6 +29,7 @@ using System.Linq;
 using DataCenter;
 using UnityEngine;
 using UnityEngine.UI;
+using Task;
 
 /// <summary>
 /// Class containing the logic for closing the ticket.
@@ -46,12 +47,12 @@ public class CloseTicket : MonoBehaviour
     [SerializeField]
     private GameObject updateButton;
     [SerializeField]
-    private GameObject listActivityPrefab;
+    private GameObject listSubtaskPrefab;
     [SerializeField]
-    private Transform listActivityHolder;
+    private Transform listSubtaskHolder;
     [SerializeField]
     private ComputerManager computerManager;
-    private List<Tablet.Activity> activities;
+    private List<Task.Subtask> subtasks;
 
     /// <summary>
     /// Method that is called when the close button is clicked. A confirmation pop-up shows up on screen when this method is called.
@@ -83,9 +84,9 @@ public class CloseTicket : MonoBehaviour
         this.yesButton.SetActive(false);
         this.noButton.SetActive(false);
         bool completed = true;
-        foreach (Tablet.Activity a in this.activities)
+        foreach (Task.Subtask a in this.subtasks)
         {
-            if (a.AktivitetIsCompeleted == false)
+            if (a.Compleated() == false)
             {
                 completed = false;
             }
@@ -116,14 +117,14 @@ public class CloseTicket : MonoBehaviour
         this.feedbackText.text = "The activities completion values have been updated";
 
         // Removing all the objects currently in the scrollview.
-        var children = this.listActivityHolder.Cast<Transform>().ToArray();
+        var children = this.listSubtaskHolder.Cast<Transform>().ToArray();
         foreach (var child in children)
         {
             UnityEngine.Object.DestroyImmediate(child.gameObject);
         }
 
-        this.InstantiateActivities();
-        this.DisplayActivities();
+        this.InstantiateSubtasks();
+        this.DisplaySubtasks();
     }
 
     /// <summary>
@@ -137,22 +138,25 @@ public class CloseTicket : MonoBehaviour
     /// <summary>
     /// This method fills in the data from the activities into the scrolling view.
     /// </summary>
-    public void DisplayActivities()
+    public void DisplaySubtasks()
     {
-        foreach (Tablet.Activity a in this.activities)
-        {
-            GameObject activityObject = Instantiate(this.listActivityPrefab, this.listActivityHolder);
-            activityObject.transform.Find("ActivityName").GetComponentInChildren<Text>().text = a.aktivitetName;
-            activityObject.transform.Find("ActivityCompleted").GetComponentInChildren<Text>().text = a.AktivitetIsCompeleted.ToString();
-        }
+        //foreach (Task.Subtask a in this.subtasks)
+        //{
+        //    GameObject activityObject = Instantiate(this.listSubtaskPrefab, this.listSubtaskHolder);
+        //    activityObject.transform.Find("ActivityName").GetComponentInChildren<Text>().text = a.aktivitetName;
+        //    activityObject.transform.Find("ActivityCompleted").GetComponentInChildren<Text>().text = a.AktivitetIsCompeleted.ToString();
+        //}
+
+        //TODO: Find out where this is in the new tablet
+        Debug.Log("Still need to figure out how to display the subtasks in the tablet!");
     }
 
     /// <summary>
     /// Method that retrieves the current activities and places them in the activities list.
     /// </summary>
-    public void InstantiateActivities()
+    public void InstantiateSubtasks()
     {
-        this.activities = DataCenterScenario.Instance.PerformMaintenanceTask.GetAktivitetList();
+        //this.subtasks = DataCenterScenario.Instance.PerformMaintenanceTask.GetSubtaskList();
     }
 
     /// <summary>
@@ -160,8 +164,8 @@ public class CloseTicket : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        this.InstantiateActivities();
-        this.DisplayActivities();
+        this.InstantiateSubtasks();
+        this.DisplaySubtasks();
         this.yesButton.SetActive(false);
         this.noButton.SetActive(false);
     }

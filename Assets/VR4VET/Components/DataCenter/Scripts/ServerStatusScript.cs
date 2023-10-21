@@ -80,13 +80,19 @@ public class ServerStatusScript : MonoBehaviour
         {
             if (this.server.IsOnline)
             {
-                Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.TurnServerOn;
-                DataCenterScenario.Instance.SetActivityCompleted(activity, true);
+                //Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.TurnServerOn;
+                //DataCenterScenario.Instance.SetActivityCompleted(activity, true);
+
+                // TODO: Set turn server on to complete
+                Debug.Log("Still need to set server turned on to complete");
             }
             else
             {
-                Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.ShutServerOff;
-                DataCenterScenario.Instance.SetActivityCompleted(activity, true);
+                //Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.ShutServerOff;
+                //DataCenterScenario.Instance.SetActivityCompleted(activity, true);
+
+                // TODO: Set turn server off to complete
+                Debug.Log("Still need to set server turned off to complete");
             }
         }
     }
