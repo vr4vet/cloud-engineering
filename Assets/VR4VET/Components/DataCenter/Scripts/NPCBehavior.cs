@@ -249,8 +249,11 @@ public class NPCBehavior : MonoBehaviour
             {
                 this.InstantiateKey();
                 this.DisplayText("Here is the key for " + this.matchedSubstring + ".");
-                Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.GetKeyToCabinet;
-                DataCenterScenario.Instance.SetActivityCompleted(activity, true);
+                //Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.GetKeyToCabinet;
+                //DataCenterScenario.Instance.SetActivityCompleted(activity, true);
+
+                // TODO: set get key subtask to completed
+                Debug.Log("Still need to set get key to completed");
             }
             else if (this.keyInstantiated && !this.ticketFinished)
             {
@@ -260,8 +263,11 @@ public class NPCBehavior : MonoBehaviour
             {
                 this.DestroyKey();
                 this.DisplayText("Thank you for handing in the key.");
-                Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.ReturnCabinetKey;
-                DataCenterScenario.Instance.SetActivityCompleted(activity, true);
+                //Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.ReturnCabinetKey;
+                //DataCenterScenario.Instance.SetActivityCompleted(activity, true);
+
+                // TODO: set handing in key to completed
+                Debug.Log("Still need to set handing in key to completed");
             }
 
             this.isPlayerInRange = true;

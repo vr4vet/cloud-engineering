@@ -27,7 +27,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using DataCenter;
 using DataCenter.Events;
-using DataCenter.Tasks;
+using Task;
 using Tablet;
 using UnityEngine;
 using UnityEngine.Assertions;
