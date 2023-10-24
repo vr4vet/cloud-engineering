@@ -45,6 +45,7 @@ public class IntroductionNPC : MonoBehaviour
     [SerializeField]
     private float pageTwoFontSize = 0.5f;
 
+    [SerializeField]
     private Transform playerTransform;
 
     /// <summary>
@@ -82,7 +83,6 @@ public class IntroductionNPC : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        this.playerTransform = GameObject.FindGameObjectWithTag("Hands").transform;
     }
 
     /// <summary>
