@@ -173,7 +173,14 @@ namespace DataCenter.HardwareProblems
             foreach (HardwareComponentSlot<HddComponent> slot in allSlots)
             {
                 bool isBroken = this.Slots.Contains(slot);
-                slot.Component = serverPopulator.CreateHddComponent(isBroken);
+                try
+                {
+                    slot.Component = serverPopulator.CreateHddComponent(isBroken);
+                }
+                catch (Exception ex)
+                {
+                    Debug.Log("Problem with creating hdd");
+                }
 
                 if (isBroken)
                 {

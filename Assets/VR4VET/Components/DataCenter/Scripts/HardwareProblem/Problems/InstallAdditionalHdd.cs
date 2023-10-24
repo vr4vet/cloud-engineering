@@ -51,12 +51,12 @@ namespace DataCenter.HardwareProblems
         public InstallAdditionalHdd(ServerLocation location, List<HardwareComponentSlot<HddComponent>> slots)
             : base(location)
         {
-            //if (slots.Any(slot => slot == null))
-            //{
-            //    throw new ArgumentException("One or more slots are null.");
-            //}
+            if (slots.Any(slot => slot == null))
+            {
+                throw new ArgumentException("One or more slots are null.");
+            }
 
-            //this.Slots = slots;
+            this.Slots = slots;
 
             //foreach (var slot in slots)
             //{

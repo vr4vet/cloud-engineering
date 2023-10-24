@@ -15,7 +15,6 @@ public class GreenLightLogic : MonoBehaviour
     {
         if (snapPoint.GetComponent<SnapZone>().HeldItem != null)
         {
-            Debug.Log("Held item not null");
             TurnControlLightOn();
         }
     }
@@ -25,7 +24,6 @@ public class GreenLightLogic : MonoBehaviour
         Renderer objectRenderer = GetComponent<Renderer>();
         // Turn on the emission when snapped
         objectRenderer.material = lightOn;
-        Debug.Log("Changed material");
     }
 
     public void TurnControlLightOff()

@@ -77,7 +77,8 @@ namespace DataCenter
             {
                 if (instance == null)
                 {
-                    throw new NullReferenceException("The data center scenario instance is null.");
+                    Debug.Log("Datacenter scenario is null");
+                    //throw new NullReferenceException("The data center scenario instance is null.");
                 }
 
                 return instance;

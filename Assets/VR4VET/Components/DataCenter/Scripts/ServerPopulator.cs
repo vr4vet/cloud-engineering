@@ -126,8 +126,17 @@ public class ServerPopulator : MonoBehaviour
         foreach (HardwareComponentSlot<HddComponent> slot in allSlots.Take(installedAmount))
         {
             HddComponent hddComponent = this.CreateHddComponent();
-            slot.TargetComponent = slot.Component = hddComponent;
-            hddComponent.GetComponent<GreenLightLogic>().TurnControlLightOn();
+            slot.TargetComponent = hddComponent;
+            try
+            {
+                slot.Component = hddComponent;
+
+            }
+            catch (Exception ex)
+            {
+                Debug.Log("Problem with hddcomponent");
+            }
+            slot.GetComponentInChildren<GreenLightLogic>().TurnControlLightOn();
         }
     }
 

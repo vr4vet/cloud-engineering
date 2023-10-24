@@ -46,6 +46,7 @@ public class NPCBehavior : MonoBehaviour
     private string errorMessageHardwareProblem;
     private GameObject textInstance;
     private GameObject keyInstance;
+    [SerializeField]
     private Transform playerTransform;
     private bool keyInstantiated = false;
     private bool isPlayerInRange = false;
@@ -211,7 +212,6 @@ public class NPCBehavior : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        this.playerTransform = GameObject.FindGameObjectWithTag("Hands").transform;
     }
 
     /// <summary>

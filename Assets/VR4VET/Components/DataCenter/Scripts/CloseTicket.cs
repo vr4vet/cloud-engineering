@@ -147,8 +147,8 @@ public class CloseTicket : MonoBehaviour
         //    activityObject.transform.Find("ActivityCompleted").GetComponentInChildren<Text>().text = a.AktivitetIsCompeleted.ToString();
         //}
 
-        //TODO: Find out where this is in the new tablet
-        Debug.Log("Still need to figure out how to display the subtasks in the tablet!");
+        //TODO: Find out where this is on the screen
+        Debug.Log("Still need to figure out how to display the subtasks on the screen!");
     }
 
     /// <summary>
@@ -157,6 +157,9 @@ public class CloseTicket : MonoBehaviour
     public void InstantiateSubtasks()
     {
         //this.subtasks = DataCenterScenario.Instance.PerformMaintenanceTask.GetSubtaskList();
+        this.subtasks = new List<Task.Subtask>();
+        // TODO: Create list of tasks/subtasks
+        Debug.Log("Need to create a list of subtasks");
     }
 
     /// <summary>
