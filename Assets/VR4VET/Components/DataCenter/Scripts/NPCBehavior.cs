@@ -29,6 +29,7 @@ using Tablet;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Task;
 
 /// <summary>
 /// This class is responsible for the behavior of the NPC.
@@ -41,6 +42,8 @@ public class NPCBehavior : MonoBehaviour
     private GameObject textPrefab;
     [SerializeField]
     private GameObject keyPrefab;
+    public Task.TaskHolder taskHolder;
+
 
     private string matchedSubstring;
     private string errorMessageHardwareProblem;
@@ -252,6 +255,7 @@ public class NPCBehavior : MonoBehaviour
                 //Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.GetKeyToCabinet;
                 //DataCenterScenario.Instance.SetActivityCompleted(activity, true);
 
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Get the Keys for the Cabinet").SetCompleated(true);
                 // TODO: set get key subtask to completed
                 Debug.Log("Still need to set get key to completed");
             }

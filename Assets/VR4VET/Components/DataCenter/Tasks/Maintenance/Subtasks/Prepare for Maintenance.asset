@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694b8dd6ca4134b4d82fc6b2dc8d2848, type: 3}
+  m_Name: Prepare for Maintenance
+  m_EditorClassIdentifier: 
+  _subtaskName: Prepare for Maintenance
+  _description: Before you can do the maintenance, you first need to go the security
+    room and talk to the head of security. They will give you a key to the right
+    cabinet.
+  _autocompleate: 1
+  _stepList:
+  - {fileID: 11400000, guid: fd555f0d115f59d4185102d07cac8fad, type: 2}
+  - {fileID: 11400000, guid: af9a0866c5ce8924888ee685069cd1ec, type: 2}
+  - {fileID: 11400000, guid: ada0d60689fa3744b9a31a0de223338c, type: 2}
