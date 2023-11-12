@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _subtaskName: Listen to the Introduction
   _description: Go to the NPC in the hallway. He will give you a short introduction.
-  _autocompleate: 1
+  _autocompleate: 0
   _stepList: []

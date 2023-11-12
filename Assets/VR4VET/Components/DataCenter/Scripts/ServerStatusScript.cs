@@ -48,6 +48,8 @@ public class ServerStatusScript : MonoBehaviour
     private GameObject previousPage;
     private HardwareComponentSlot<HddComponent>[] hardDriveSlots;
 
+    public Task.TaskHolder taskHolder;
+
     /// <summary>
     /// Gets or Sets server.
     /// </summary>
@@ -80,11 +82,10 @@ public class ServerStatusScript : MonoBehaviour
         {
             if (this.server.IsOnline)
             {
-                //Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.TurnServerOn;
-                //DataCenterScenario.Instance.SetActivityCompleted(activity, true);
 
                 // TODO: Set turn server on to complete
-                Debug.Log("Still need to set server turned on to complete");
+                Debug.Log("Is turn on set to complete?");
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Turn Server On").SetCompleated(true);
             }
             else
             {
@@ -92,7 +93,8 @@ public class ServerStatusScript : MonoBehaviour
                 //DataCenterScenario.Instance.SetActivityCompleted(activity, true);
 
                 // TODO: Set turn server off to complete
-                Debug.Log("Still need to set server turned off to complete");
+                Debug.Log("Still need to check if set server turned off is set to complete");
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Shut Server Off").SetCompleated(true);
             }
         }
     }

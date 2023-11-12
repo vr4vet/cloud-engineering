@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _subtaskName: Create Ticket
   _description: Create a ticket on the computer in the hallway.
-  _autocompleate: 1
+  _autocompleate: 0
   _stepList: []

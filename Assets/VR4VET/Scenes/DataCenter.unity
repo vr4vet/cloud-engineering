@@ -5696,6 +5696,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3074045125412220530, guid: 4e3c156f1cd6d5143a6c0b77afe960ee,
+        type: 3}
+      propertyPath: listSubtaskHolder
+      value: 
+      objectReference: {fileID: 6232640755597719528, guid: bf79e215bd14fc74a8b607120edcbd1a,
+        type: 3}
+    - target: {fileID: 3074045125412220530, guid: 4e3c156f1cd6d5143a6c0b77afe960ee,
+        type: 3}
+      propertyPath: listSubtaskPrefab
+      value: 
+      objectReference: {fileID: 1490027639746807430, guid: bf79e215bd14fc74a8b607120edcbd1a,
+        type: 3}
     - target: {fileID: 3213179771469738052, guid: 4e3c156f1cd6d5143a6c0b77afe960ee,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5711,6 +5723,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5074022089435866028, guid: 4e3c156f1cd6d5143a6c0b77afe960ee,
+        type: 3}
+      propertyPath: taskHolder
+      value: 
+      objectReference: {fileID: 1691667283}
     - target: {fileID: 5202048384465294758, guid: 4e3c156f1cd6d5143a6c0b77afe960ee,
         type: 3}
       propertyPath: m_IsActive
@@ -11800,6 +11817,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5673156071559296778, guid: ebb673aaff8ab9349aae7a21355cfaf7,
+        type: 3}
+      propertyPath: taskHolder
+      value: 
+      objectReference: {fileID: 1691667283}
     - target: {fileID: 5855572664773901639, guid: ebb673aaff8ab9349aae7a21355cfaf7,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -11884,6 +11906,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5673156071559296778, guid: ebb673aaff8ab9349aae7a21355cfaf7,
+        type: 3}
+      propertyPath: taskHolder
+      value: 
+      objectReference: {fileID: 1691667283}
     - target: {fileID: 5855572664773901639, guid: ebb673aaff8ab9349aae7a21355cfaf7,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -42405,24 +42432,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 510366963092329820}
-        m_TargetAssemblyTypeName: FloatingUIManager, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1829524345499979897}
-        m_TargetAssemblyTypeName: FloatingUIManager, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -54437,7 +54464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8015120835880266268
 RectTransform:
   m_ObjectHideFlags: 0
