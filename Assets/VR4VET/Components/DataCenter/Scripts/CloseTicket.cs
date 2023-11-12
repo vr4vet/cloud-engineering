@@ -52,7 +52,7 @@ public class CloseTicket : MonoBehaviour
     private Transform listSubtaskHolder;
     [SerializeField]
     private ComputerManager computerManager;
-    private List<Task.Subtask> subtasks;
+    public Task.TaskHolder taskHolder;
 
     /// <summary>
     /// Method that is called when the close button is clicked. A confirmation pop-up shows up on screen when this method is called.
@@ -84,7 +84,7 @@ public class CloseTicket : MonoBehaviour
         this.yesButton.SetActive(false);
         this.noButton.SetActive(false);
         bool completed = true;
-        foreach (Task.Subtask a in this.subtasks)
+        foreach (Task.Task a in taskHolder.taskList)
         {
             if (a.Compleated() == false)
             {
@@ -95,8 +95,8 @@ public class CloseTicket : MonoBehaviour
         // If completed is true, show a message that the experience is done.
         if (completed)
         {
-            this.feedbackText.text = "Good job! You have completed your tasks and fixed the problem. You can take a look at the skill page to"
-                + "see your acquired points. The data center experience is complete.";
+            this.feedbackText.text = "Good job! You have completed your tasks and fixed the problem. Please bring back the key to end the experience.";
+            taskHolder.GetTask("Close Ticket").GetSubtask("Close Ticket on Computer").SetCompleated(true);
             DataCenterScenario.Instance.EventBus.TicketFinished?.Invoke(new TicketFinishedEvent());
             this.yesButton.GetComponent<Button>().interactable = false;
             this.noButton.GetComponent<Button>().interactable = false;
@@ -123,7 +123,6 @@ public class CloseTicket : MonoBehaviour
             UnityEngine.Object.DestroyImmediate(child.gameObject);
         }
 
-        this.InstantiateSubtasks();
         this.DisplaySubtasks();
     }
 
@@ -140,26 +139,15 @@ public class CloseTicket : MonoBehaviour
     /// </summary>
     public void DisplaySubtasks()
     {
-        //foreach (Task.Subtask a in this.subtasks)
-        //{
-        //    GameObject activityObject = Instantiate(this.listSubtaskPrefab, this.listSubtaskHolder);
-        //    activityObject.transform.Find("ActivityName").GetComponentInChildren<Text>().text = a.aktivitetName;
-        //    activityObject.transform.Find("ActivityCompleted").GetComponentInChildren<Text>().text = a.AktivitetIsCompeleted.ToString();
-        //}
+        foreach (Task.Task a in taskHolder.taskList)
+        {
+            GameObject activityObject = Instantiate(this.listSubtaskPrefab, this.listSubtaskHolder);
+            activityObject.transform.Find("ActivityName").GetComponentInChildren<Text>().text = a.TaskName;
+            activityObject.transform.Find("ActivityCompleted").GetComponentInChildren<Text>().text = a.Compleated().ToString();
+        }
 
         //TODO: Find out where this is on the screen
-        Debug.Log("Still need to figure out how to display the subtasks on the screen!");
-    }
-
-    /// <summary>
-    /// Method that retrieves the current activities and places them in the activities list.
-    /// </summary>
-    public void InstantiateSubtasks()
-    {
-        //this.subtasks = DataCenterScenario.Instance.PerformMaintenanceTask.GetSubtaskList();
-        this.subtasks = new List<Task.Subtask>();
-        // TODO: Create list of tasks/subtasks
-        Debug.Log("Need to create a list of subtasks");
+        Debug.Log("Are the tasks on the screen?");
     }
 
     /// <summary>
@@ -167,7 +155,6 @@ public class CloseTicket : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        this.InstantiateSubtasks();
         this.DisplaySubtasks();
         this.yesButton.SetActive(false);
         this.noButton.SetActive(false);
