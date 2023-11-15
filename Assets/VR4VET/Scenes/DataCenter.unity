@@ -5636,6 +5636,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 829749060794660317, guid: 4e3c156f1cd6d5143a6c0b77afe960ee,
+        type: 3}
+      propertyPath: taskHolder
+      value: 
+      objectReference: {fileID: 1691667283}
     - target: {fileID: 2437943394433650568, guid: 4e3c156f1cd6d5143a6c0b77afe960ee,
         type: 3}
       propertyPath: m_Name
@@ -5696,6 +5701,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3074045125412220530, guid: 4e3c156f1cd6d5143a6c0b77afe960ee,
+        type: 3}
+      propertyPath: taskHolder
+      value: 
+      objectReference: {fileID: 1691667283}
     - target: {fileID: 3074045125412220530, guid: 4e3c156f1cd6d5143a6c0b77afe960ee,
         type: 3}
       propertyPath: listSubtaskHolder
