@@ -254,6 +254,8 @@ public class NPCBehavior : MonoBehaviour
                 this.DisplayText("Here is the key for " + this.matchedSubstring + ".");
 
                 taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Get the Keys for the Cabinet").SetCompleated(true);
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Enter Security Room").SetCompleated(true);
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Talk to Security NPC").SetCompleated(true);
             }
             else if (this.keyInstantiated && !this.ticketFinished)
             {

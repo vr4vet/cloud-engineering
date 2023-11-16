@@ -151,6 +151,8 @@ public class CheckTicket : MonoBehaviour
             DataCenterScenario.Instance.EventBus.TicketAccepted?.Invoke(new TicketAcceptedEvent());
             Debug.Log("Check if create ticket is set to complete");
             taskHolder.GetTask("Create a Ticket").GetSubtask("Create Ticket").SetCompleated(true);
+            taskHolder.GetTask("Create a Ticket").GetSubtask("Listen to the Introduction").SetCompleated(true);
+            taskHolder.GetTask("Create a Ticket").Compleated(true);
 
             // When the ticket is accepted the buttons and dropdowns should no longer be interactable.
             this.fileButton.GetComponent<Button>().interactable = false;
