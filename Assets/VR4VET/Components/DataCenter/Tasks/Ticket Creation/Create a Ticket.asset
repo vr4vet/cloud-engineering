@@ -16,7 +16,7 @@ MonoBehaviour:
   _description: To start the experience, you first need to create a ticket. Go to
     the NPC in the hallway and listen carefully. He will give you an explanation
     and then you can create a ticket on the computers also in the hallway.
-  _autocompleate: 0
+  _autocompleate: 1
   _subtasks:
   - {fileID: 11400000, guid: 21eb5be3e77d81441b4c02541d5eb20e, type: 2}
   - {fileID: 11400000, guid: ed9aeb8c88ccf06499ab9d92d0668259, type: 2}

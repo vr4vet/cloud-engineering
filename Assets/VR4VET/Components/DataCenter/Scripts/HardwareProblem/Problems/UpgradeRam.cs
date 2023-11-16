@@ -199,7 +199,18 @@ namespace DataCenter.HardwareProblems
 
             foreach (HardwareComponentSlot<RamComponent> slot in this.Slots)
             {
-                slot.IsComponentValid = () => slot.Component.Capacity == this.upgradeToCapacity;
+                slot.IsComponentValid = () =>
+                {
+                    // TODO: Sometimes slot.Component.Capacity is null, need a fix for this
+                    if (slot != null && slot.Component != null && slot.Component.Capacity != null && this.upgradeToCapacity != null)
+                    {
+                        return slot.Component.Capacity == this.upgradeToCapacity;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                };
             }
 
             serverPopulator.PopulateHdd(this.Location.Server);

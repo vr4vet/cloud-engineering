@@ -24,13 +24,14 @@
 
 namespace DataCenter.HardwareProblems
 {
+    using System.Linq;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using DataCenter.Events;
     using Tablet;
-    using Task;
     using UnityEngine;
+    using UnityEngine.UI;
 
     /// <summary>
     /// A concrete class that represents a hardware problem type where the player has to install
@@ -41,7 +42,7 @@ namespace DataCenter.HardwareProblems
         /// <summary>
         /// A dictionary that maps RAM slots to activities.
         /// </summary>
-        private readonly Dictionary<HardwareComponentSlot<RamComponent>, Subtask> slotToActivity = new();
+        private readonly Dictionary<HardwareComponentSlot<RamComponent>, Task.Subtask> slotToActivity = new();
 
         /// <summary>
         /// The capacity of the RAM modules that are already installed and still need to be installed.
@@ -64,20 +65,6 @@ namespace DataCenter.HardwareProblems
 
             this.Slots = slots;
             this.ramModuleCapacity = ramModuleCapacity;
-
-            //foreach (var slot in slots)
-            //{
-            //    Activity activity = new()
-            //    {
-            //        aktivitetName = $"Install {ramModuleCapacity} GiB RAM into {slot.name}.",
-            //        AktivitetIsCompeleted = false,
-            //    };
-            //    this.Activities.Add(activity);
-            //    this.slotToActivity.Add(slot, activity);
-            //}
-
-            // TODO: create steps for installing RAM
-            Debug.Log("Still need to create steps to install additional RAM");
         }
 
         /// <summary>
