@@ -329,6 +329,7 @@ public class ServerStatusScript : MonoBehaviour
 
     public void checkIfTaskCompleted()
     {
+        taskHolder = FindObjectOfType<Task.TaskHolder>();
         if (this.server.Equals(this.hardwareProblem.Location.Server) && taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Replace or Add Components") != null)
         {
             if (this.server.AreAllComponentsValid())
