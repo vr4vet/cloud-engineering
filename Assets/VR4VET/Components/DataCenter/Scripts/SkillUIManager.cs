@@ -27,6 +27,7 @@ using System.Collections.Generic;
 using Tablet;
 using UnityEngine;
 using UnityEngine.UI;
+using Task;
 
 /// <summary>
 /// Class controlling the skill UI of the computer prefab.
@@ -39,7 +40,7 @@ public class SkillUIManager : MonoBehaviour
     private Transform listItemHolder;
     [SerializeField]
     private ComputerManager computerManager;
-    private TaskHolder th;
+    private Task.TaskHolder th;
 
     /// <summary>
     /// Gets or Sets the private field "listItemPrefab".
@@ -69,15 +70,17 @@ public class SkillUIManager : MonoBehaviour
     /// </summary>
     public void InstantiateList()
     {
-        List<Skill> skillList = this.th.getSkillList();
+        //List<Skill> skillList = this.th.getSkillList();
 
-        foreach (Skill skill in skillList)
-        {
-            GameObject skillObject = Instantiate(this.listItemPrefab, this.listItemHolder);
-            skillObject.transform.Find("SkillName").GetComponentInChildren<Text>().text = skill.GetFerdighetName();
-            string points = skill.GetAchievedPoeng().ToString() + " / " + skill.GetTotalPoeng().ToString();
-            skillObject.transform.Find("SkillPoints").GetComponentInChildren<Text>().text = points;
-        }
+        //foreach (Skill skill in skillList)
+        //{
+        //    GameObject skillObject = Instantiate(this.listItemPrefab, this.listItemHolder);
+        //    skillObject.transform.Find("SkillName").GetComponentInChildren<Text>().text = skill.GetFerdighetName();
+        //    string points = skill.GetAchievedPoeng().ToString() + " / " + skill.GetTotalPoeng().ToString();
+        //    skillObject.transform.Find("SkillPoints").GetComponentInChildren<Text>().text = points;
+        //}
+
+        Debug.Log("Need to isntantiate a list of skills");
     }
 
     /// <summary>

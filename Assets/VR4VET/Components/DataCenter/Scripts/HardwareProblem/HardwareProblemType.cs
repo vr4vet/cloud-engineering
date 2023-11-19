@@ -75,7 +75,7 @@ namespace DataCenter.HardwareProblems
         /// problem. They should be performed after the server has been shut down,
         /// and before it is started again.
         /// </summary>
-        public List<Activity> Activities { get; } = new List<Activity>();
+        //public List<Activity> Activities { get; } = new List<Activity>();
 
         /// <summary>
         /// Gets the server location of the problem.

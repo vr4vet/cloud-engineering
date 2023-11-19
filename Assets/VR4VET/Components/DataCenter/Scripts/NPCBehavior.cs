@@ -29,6 +29,7 @@ using Tablet;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Task;
 
 /// <summary>
 /// This class is responsible for the behavior of the NPC.
@@ -41,11 +42,14 @@ public class NPCBehavior : MonoBehaviour
     private GameObject textPrefab;
     [SerializeField]
     private GameObject keyPrefab;
+    public Task.TaskHolder taskHolder;
+
 
     private string matchedSubstring;
     private string errorMessageHardwareProblem;
     private GameObject textInstance;
     private GameObject keyInstance;
+    [SerializeField]
     private Transform playerTransform;
     private bool keyInstantiated = false;
     private bool isPlayerInRange = false;
@@ -211,7 +215,6 @@ public class NPCBehavior : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        this.playerTransform = GameObject.FindGameObjectWithTag("Hands").transform;
     }
 
     /// <summary>
@@ -249,8 +252,10 @@ public class NPCBehavior : MonoBehaviour
             {
                 this.InstantiateKey();
                 this.DisplayText("Here is the key for " + this.matchedSubstring + ".");
-                Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.GetKeyToCabinet;
-                DataCenterScenario.Instance.SetActivityCompleted(activity, true);
+
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Get the Keys for the Cabinet").SetCompleated(true);
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Enter Security Room").SetCompleated(true);
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Talk to Security NPC").SetCompleated(true);
             }
             else if (this.keyInstantiated && !this.ticketFinished)
             {
@@ -260,8 +265,11 @@ public class NPCBehavior : MonoBehaviour
             {
                 this.DestroyKey();
                 this.DisplayText("Thank you for handing in the key.");
-                Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.ReturnCabinetKey;
-                DataCenterScenario.Instance.SetActivityCompleted(activity, true);
+                //Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.ReturnCabinetKey;
+                //DataCenterScenario.Instance.SetActivityCompleted(activity, true);
+
+                Debug.Log("Still need to check handing in key is set to completed");
+                taskHolder.GetTask("Close Ticket").GetSubtask("Return the Key").SetCompleated(true);
             }
 
             this.isPlayerInRange = true;

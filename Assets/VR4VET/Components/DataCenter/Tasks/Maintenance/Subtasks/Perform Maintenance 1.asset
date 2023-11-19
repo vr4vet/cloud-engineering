@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694b8dd6ca4134b4d82fc6b2dc8d2848, type: 3}
+  m_Name: Perform Maintenance 1
+  m_EditorClassIdentifier: 
+  _subtaskName: Perform Maintenance
+  _description: Now that you are prepared for the maintenance it is time to perform
+    it!
+  _autocompleate: 1
+  _stepList:
+  - {fileID: 11400000, guid: 04d38baff33de1f4aa8107238d9c34a1, type: 2}
+  - {fileID: 11400000, guid: fe648648e9a203a4dacc0237824f50f3, type: 2}
+  - {fileID: 11400000, guid: e08e40eb15487f44bb981168b86ef124, type: 2}
+  - {fileID: 11400000, guid: e8e60f171f661a74d92d1b41028351fe, type: 2}

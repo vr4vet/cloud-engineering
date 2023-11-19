@@ -45,6 +45,7 @@ public class IntroductionNPC : MonoBehaviour
     [SerializeField]
     private float pageTwoFontSize = 0.5f;
 
+    [SerializeField]
     private Transform playerTransform;
 
     /// <summary>
@@ -72,6 +73,8 @@ public class IntroductionNPC : MonoBehaviour
         // If it is displaying the final page, it moves to the first page (not default page)
         else
         {
+            Task.TaskHolder taskHolder = FindObjectOfType<Task.TaskHolder>();
+            taskHolder.GetTask("Create a Ticket").GetSubtask("Listen to the Introduction").SetCompleated(true);
             this.textPrefab.GetComponent<TextMeshProUGUI>().fontSize = this.pageOneFontSize;
             this.textPrefab.GetComponent<TextMeshProUGUI>().text = this.pageOne;
         }
@@ -82,7 +85,6 @@ public class IntroductionNPC : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        this.playerTransform = GameObject.FindGameObjectWithTag("Hands").transform;
     }
 
     /// <summary>

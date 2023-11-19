@@ -60,6 +60,8 @@ public class CheckTicket : MonoBehaviour
     [SerializeField]
     private GameObject fileButton;
 
+    public Task.TaskHolder taskHolder;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="CheckTicket"/> class.
     /// Constructor for the CheckTicket class.
@@ -147,6 +149,10 @@ public class CheckTicket : MonoBehaviour
         {
             this.onClickPopup.text = "The ticket is accepted, you filled it in correctly. Take a look at the tablet on your left hip to see what you should do next.";
             DataCenterScenario.Instance.EventBus.TicketAccepted?.Invoke(new TicketAcceptedEvent());
+            Debug.Log("Check if create ticket is set to complete");
+            taskHolder.GetTask("Create a Ticket").GetSubtask("Create Ticket").SetCompleated(true);
+            taskHolder.GetTask("Create a Ticket").GetSubtask("Listen to the Introduction").SetCompleated(true);
+            taskHolder.GetTask("Create a Ticket").Compleated(true);
 
             // When the ticket is accepted the buttons and dropdowns should no longer be interactable.
             this.fileButton.GetComponent<Button>().interactable = false;
