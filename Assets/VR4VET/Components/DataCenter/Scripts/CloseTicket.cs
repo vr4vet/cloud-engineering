@@ -83,14 +83,7 @@ public class CloseTicket : MonoBehaviour
     {
         this.yesButton.SetActive(false);
         this.noButton.SetActive(false);
-        bool completed = true;
-        foreach (Task.Task a in taskHolder.taskList)
-        {
-            if (a.Compleated() == false)
-            {
-                completed = false;
-            }
-        }
+        bool completed = taskHolder.GetTask("Perform Maintenance").Compleated() && taskHolder.GetTask("Create a Ticket").Compleated();
 
         // If completed is true, show a message that the experience is done.
         if (completed)
@@ -104,8 +97,13 @@ public class CloseTicket : MonoBehaviour
         }
         else
         {
-            this.feedbackText.text = "It looks like some of your tasks are not yet completed. Press update and take a look at the list above. "
-                + "See if there are any activities that are not yet completed.";
+            if (taskHolder.GetTask("Create Ticket"))
+            {
+                this.feedbackText.text = "It looks like you have not completed the maintenance yet... Look at the tablet to see what still needs to be done";
+            } else
+            {
+                this.feedbackText.text = "You can't close a ticket if you have not created one yet... Go back to the main menu to create a ticket.";
+            }
         }
     }
 
@@ -114,8 +112,6 @@ public class CloseTicket : MonoBehaviour
     /// </summary>
     public void UpdateClick()
     {
-        this.feedbackText.text = "The activities completion values have been updated";
-
         // Removing all the objects currently in the scrollview.
         var children = this.listSubtaskHolder.Cast<Transform>().ToArray();
         foreach (var child in children)
@@ -124,6 +120,8 @@ public class CloseTicket : MonoBehaviour
         }
 
         this.DisplaySubtasks();
+        this.feedbackText.text = "The activities completion values have been updated";
+
     }
 
     /// <summary>
@@ -139,11 +137,15 @@ public class CloseTicket : MonoBehaviour
     /// </summary>
     public void DisplaySubtasks()
     {
+        float yPosAdded = 0;
         foreach (Task.Task a in taskHolder.taskList)
         {
             GameObject activityObject = Instantiate(this.listSubtaskPrefab, this.listSubtaskHolder);
+            RectTransform uiRectTransform = activityObject.GetComponent<RectTransform>();
+            uiRectTransform.anchoredPosition = new Vector2(160.0f, 410.0f - yPosAdded);
             activityObject.transform.Find("ActivityName").GetComponentInChildren<Text>().text = a.TaskName;
             activityObject.transform.Find("ActivityCompleted").GetComponentInChildren<Text>().text = a.Compleated().ToString();
+            yPosAdded += 100;
         }
 
         //TODO: Find out where this is on the screen

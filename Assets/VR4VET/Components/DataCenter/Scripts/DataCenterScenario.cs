@@ -189,7 +189,7 @@ namespace DataCenter
             HardwareProblem problem = generator.GenerateProblem(new System.Random(), generator.GetAllHardwareProblemTypes());
 
             Debug.Log($"Generated hardware problem: {problem.Message}");
-            taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").Description += " " + problem.Message;
+            taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").Description = "Now that you are prepared for the maintenance it is time to perform it! " + problem.Message + " Don't forget to turn the server off before maintenance on the wall in the server room.";
             taskHolder.GetTask("Perform Maintenance").Description = problem.Message;
 
             HardwareProblemGeneratedEvent problemGeneratedEvent = new(problem);

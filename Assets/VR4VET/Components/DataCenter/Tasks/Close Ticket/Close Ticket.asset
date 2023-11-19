@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _taskName: Close Ticket
   _description: Now that the maintenance is performed, it is time to close the ticket.
+    Look at the subtasks to see how you can do it.
   _autocompleate: 1
   _subtasks:
   - {fileID: 11400000, guid: b3a7f55cd348374498a2bed53208aad2, type: 2}

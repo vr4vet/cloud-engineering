@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Close Ticket on Computer
   m_EditorClassIdentifier: 
   _subtaskName: Close Ticket on Computer
-  _description: Go to the computer and close the ticket
+  _description: Go to the computer where you created the ticket. Get back to the
+    main menu and chose close ticket. There you can close the ticket.
   _autocompleate: 0
   _stepList: []
