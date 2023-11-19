@@ -81,20 +81,13 @@ public class ServerStatusScript : MonoBehaviour
         if (this.server.Equals(this.hardwareProblem.Location.Server))
         {
             taskHolder = FindObjectOfType<Task.TaskHolder>();
-            if (this.server.IsOnline)
+            if (this.server.IsOnline && taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Replace or Add Components").IsCompeleted())
             {
 
-                // TODO: Set turn server on to complete
-                Debug.Log("Is turn on set to complete?");
                 taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Turn Server On").SetCompleated(true);
             }
             else
             {
-                //Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.ShutServerOff;
-                //DataCenterScenario.Instance.SetActivityCompleted(activity, true);
-
-                // TODO: Set turn server off to complete
-                Debug.Log("Still need to check if set server turned off is set to complete");
                 taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Shut Server Off").SetCompleated(true);
                 taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Turn Server On").SetCompleated(false);
             }
