@@ -29,6 +29,7 @@ using System.Linq;
 using DataCenter;
 using UnityEngine;
 using UnityEngine.UI;
+using Task;
 
 /// <summary>
 /// Class containing the logic for closing the ticket.
@@ -46,12 +47,12 @@ public class CloseTicket : MonoBehaviour
     [SerializeField]
     private GameObject updateButton;
     [SerializeField]
-    private GameObject listActivityPrefab;
+    private GameObject listSubtaskPrefab;
     [SerializeField]
-    private Transform listActivityHolder;
+    private Transform listSubtaskHolder;
     [SerializeField]
     private ComputerManager computerManager;
-    private List<Tablet.Activity> activities;
+    public Task.TaskHolder taskHolder;
 
     /// <summary>
     /// Method that is called when the close button is clicked. A confirmation pop-up shows up on screen when this method is called.
@@ -82,20 +83,13 @@ public class CloseTicket : MonoBehaviour
     {
         this.yesButton.SetActive(false);
         this.noButton.SetActive(false);
-        bool completed = true;
-        foreach (Tablet.Activity a in this.activities)
-        {
-            if (a.AktivitetIsCompeleted == false)
-            {
-                completed = false;
-            }
-        }
+        bool completed = taskHolder.GetTask("Perform Maintenance").Compleated() && taskHolder.GetTask("Create a Ticket").Compleated();
 
         // If completed is true, show a message that the experience is done.
         if (completed)
         {
-            this.feedbackText.text = "Good job! You have completed your tasks and fixed the problem. You can take a look at the skill page to"
-                + "see your acquired points. The data center experience is complete.";
+            this.feedbackText.text = "Good job! You have completed your tasks and fixed the problem. Please bring back the key to end the experience.";
+            taskHolder.GetTask("Close Ticket").GetSubtask("Close Ticket on Computer").SetCompleated(true);
             DataCenterScenario.Instance.EventBus.TicketFinished?.Invoke(new TicketFinishedEvent());
             this.yesButton.GetComponent<Button>().interactable = false;
             this.noButton.GetComponent<Button>().interactable = false;
@@ -103,8 +97,13 @@ public class CloseTicket : MonoBehaviour
         }
         else
         {
-            this.feedbackText.text = "It looks like some of your tasks are not yet completed. Press update and take a look at the list above. "
-                + "See if there are any activities that are not yet completed.";
+            if (taskHolder.GetTask("Create Ticket"))
+            {
+                this.feedbackText.text = "It looks like you have not completed the maintenance yet... Look at the tablet to see what still needs to be done";
+            } else
+            {
+                this.feedbackText.text = "You can't close a ticket if you have not created one yet... Go back to the main menu to create a ticket.";
+            }
         }
     }
 
@@ -113,17 +112,16 @@ public class CloseTicket : MonoBehaviour
     /// </summary>
     public void UpdateClick()
     {
-        this.feedbackText.text = "The activities completion values have been updated";
-
         // Removing all the objects currently in the scrollview.
-        var children = this.listActivityHolder.Cast<Transform>().ToArray();
+        var children = this.listSubtaskHolder.Cast<Transform>().ToArray();
         foreach (var child in children)
         {
             UnityEngine.Object.DestroyImmediate(child.gameObject);
         }
 
-        this.InstantiateActivities();
-        this.DisplayActivities();
+        this.DisplaySubtasks();
+        this.feedbackText.text = "The activities completion values have been updated";
+
     }
 
     /// <summary>
@@ -137,22 +135,21 @@ public class CloseTicket : MonoBehaviour
     /// <summary>
     /// This method fills in the data from the activities into the scrolling view.
     /// </summary>
-    public void DisplayActivities()
+    public void DisplaySubtasks()
     {
-        foreach (Tablet.Activity a in this.activities)
+        float yPosAdded = 0;
+        foreach (Task.Task a in taskHolder.taskList)
         {
-            GameObject activityObject = Instantiate(this.listActivityPrefab, this.listActivityHolder);
-            activityObject.transform.Find("ActivityName").GetComponentInChildren<Text>().text = a.aktivitetName;
-            activityObject.transform.Find("ActivityCompleted").GetComponentInChildren<Text>().text = a.AktivitetIsCompeleted.ToString();
+            GameObject activityObject = Instantiate(this.listSubtaskPrefab, this.listSubtaskHolder);
+            RectTransform uiRectTransform = activityObject.GetComponent<RectTransform>();
+            uiRectTransform.anchoredPosition = new Vector2(160.0f, 410.0f - yPosAdded);
+            activityObject.transform.Find("ActivityName").GetComponentInChildren<Text>().text = a.TaskName;
+            activityObject.transform.Find("ActivityCompleted").GetComponentInChildren<Text>().text = a.Compleated().ToString();
+            yPosAdded += 100;
         }
-    }
 
-    /// <summary>
-    /// Method that retrieves the current activities and places them in the activities list.
-    /// </summary>
-    public void InstantiateActivities()
-    {
-        this.activities = DataCenterScenario.Instance.PerformMaintenanceTask.GetAktivitetList();
+        //TODO: Find out where this is on the screen
+        Debug.Log("Are the tasks on the screen?");
     }
 
     /// <summary>
@@ -160,8 +157,7 @@ public class CloseTicket : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        this.InstantiateActivities();
-        this.DisplayActivities();
+        this.DisplaySubtasks();
         this.yesButton.SetActive(false);
         this.noButton.SetActive(false);
     }

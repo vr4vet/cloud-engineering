@@ -48,6 +48,8 @@ public class ServerStatusScript : MonoBehaviour
     private GameObject previousPage;
     private HardwareComponentSlot<HddComponent>[] hardDriveSlots;
 
+    public Task.TaskHolder taskHolder;
+
     /// <summary>
     /// Gets or Sets server.
     /// </summary>
@@ -78,15 +80,16 @@ public class ServerStatusScript : MonoBehaviour
 
         if (this.server.Equals(this.hardwareProblem.Location.Server))
         {
-            if (this.server.IsOnline)
+            taskHolder = FindObjectOfType<Task.TaskHolder>();
+            if (this.server.IsOnline && taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Replace or Add Components").IsCompeleted())
             {
-                Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.TurnServerOn;
-                DataCenterScenario.Instance.SetActivityCompleted(activity, true);
+
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Turn Server On").SetCompleated(true);
             }
             else
             {
-                Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.ShutServerOff;
-                DataCenterScenario.Instance.SetActivityCompleted(activity, true);
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Shut Server Off").SetCompleated(true);
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Turn Server On").SetCompleated(false);
             }
         }
     }
@@ -269,6 +272,7 @@ public class ServerStatusScript : MonoBehaviour
         {
             background.color = Color.red * 0.8F;
         }
+        checkIfTaskCompleted();
     }
 
     /// <summary>
@@ -312,6 +316,24 @@ public class ServerStatusScript : MonoBehaviour
         else
         {
             background.color = Color.red * 0.8F;
+        }
+        checkIfTaskCompleted();
+    }
+
+    public void checkIfTaskCompleted()
+    {
+        taskHolder = FindObjectOfType<Task.TaskHolder>();
+        if (this.server.Equals(this.hardwareProblem.Location.Server) && taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Replace or Add Components") != null)
+        {
+            if (this.server.AreAllComponentsValid())
+            {
+                taskHolder = FindObjectOfType<Task.TaskHolder>();
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Replace or Add Components").SetCompleated(true);
+            }
+            else
+            {
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Replace or Add Components").SetCompleated(false);
+            }
         }
     }
 }
