@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 788149784503261065}
   - component: {fileID: 4428714574504007093}
   - component: {fileID: 8791609072421954377}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 1768619312910083129}
   - component: {fileID: 1863456923111139610}
   - component: {fileID: 1983176534825728714}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HDD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,6 +456,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: hddV1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8e292761422ce1240a2670765c058de9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e292761422ce1240a2670765c058de9, type: 3}
