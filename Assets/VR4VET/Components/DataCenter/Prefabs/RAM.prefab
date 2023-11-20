@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6630594621048252243}
   - component: {fileID: 3683629022913911623}
   - component: {fileID: 1996067135331598497}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 6554512993885309363}
   - component: {fileID: 6257700958600994133}
   - component: {fileID: 7825005522400040196}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RAM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,6 +414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Renderer
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 945bd425232c77f40a0cc0cce7a1fd5d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 945bd425232c77f40a0cc0cce7a1fd5d, type: 3}

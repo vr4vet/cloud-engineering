@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 1638314667658469801}
   - component: {fileID: 7568056786470461242}
   - component: {fileID: 4067639347517658081}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Side (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +793,7 @@ GameObject:
   - component: {fileID: 2866630963775802774}
   - component: {fileID: 5000021302009360954}
   - component: {fileID: 7063621496170362168}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 6558408651747639077}
   - component: {fileID: 5367266353199702200}
   - component: {fileID: 961447578679507278}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: Drawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1087,7 +1087,7 @@ GameObject:
   - component: {fileID: 5316830944688892161}
   - component: {fileID: 7649364977865241313}
   - component: {fileID: 4825446025183700776}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1237,7 +1237,7 @@ GameObject:
   - component: {fileID: 3154833489515267165}
   - component: {fileID: 2457695557592929633}
   - component: {fileID: 9079623237411654667}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Side (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1590,7 +1590,7 @@ GameObject:
   - component: {fileID: 7148831732094450556}
   - component: {fileID: 8977467042792065594}
   - component: {fileID: 4114475088025656655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1684,7 +1684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5403314216541561947}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GrabPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1800,7 +1800,7 @@ GameObject:
   - component: {fileID: 1344193824299622450}
   - component: {fileID: 2108473578227894629}
   - component: {fileID: 8561956004672251335}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2140,7 +2140,7 @@ GameObject:
   - component: {fileID: 5864298286535589684}
   - component: {fileID: 8732850235825693645}
   - component: {fileID: 1679920707611344954}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Side (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
