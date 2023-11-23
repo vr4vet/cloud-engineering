@@ -107,6 +107,7 @@ public class CheckTicket : MonoBehaviour
         // Retrieving and placing the options for the rack number.
         this.rackNumberInput.ClearOptions();
         List<string> rackList = DataCenterScenario.Instance.GetComponentsInChildren<Server>().Select(s => s.name).ToList();
+        rackList = rackList.Where(s => s.Length > 0).Select(s => s[^1].ToString()).Distinct().ToList();
         this.rackNumberInput.AddOptions(rackList);
 
         // Clearing the options for the hardware and task component.
@@ -121,7 +122,8 @@ public class CheckTicket : MonoBehaviour
         List<Type> hList = hardwareTypes.ToList();
 
         // Accessing the public static fields which contains the name of the hardware type and the task to be done.
-        var hardwareList = hList.Select(s => (string)s.GetProperty("HardwareTypeName")?.GetValue(null));
+        var hardwareList = hList.Select(s => (string)s.GetProperty("HardwareTypeName")?.GetValue(null)).GroupBy(t => t)
+            .Select(g => g.First());
         var taskList = hList.Select(s => (string)s.GetProperty("HardwareTaskTypeName")?.GetValue(null));
         List<string> hStringList = hardwareList.ToList<string>();
         List<string> tStringList = taskList.ToList<string>();
@@ -143,13 +145,14 @@ public class CheckTicket : MonoBehaviour
         string rackSelected = this.GetSelectedText(this.rackNumberInput);
         string hardwareSelected = this.GetSelectedText(this.hardWareInput);
 
+        rackSelected = "Server " + serverSelected[^1] + "."+ rackSelected;
+
         // If the options selected are the same as correct options, the button should display the text "accepted"
         if (errorSelected.Equals(this.correctErrorSelected) && serverSelected.Equals(this.correctServerSelected) &&
             rackSelected.Equals(this.correctRackSelected) && hardwareSelected.Equals(this.correctHardwareSelected))
         {
             this.onClickPopup.text = "The ticket is accepted, you filled it in correctly. Take a look at the tablet on your left hip to see what you should do next.";
             DataCenterScenario.Instance.EventBus.TicketAccepted?.Invoke(new TicketAcceptedEvent());
-            Debug.Log("Check if create ticket is set to complete");
             taskHolder.GetTask("Create a Ticket").GetSubtask("Create Ticket").SetCompleated(true);
             taskHolder.GetTask("Create a Ticket").GetSubtask("Listen to the Introduction").SetCompleated(true);
             taskHolder.GetTask("Create a Ticket").Compleated(true);
