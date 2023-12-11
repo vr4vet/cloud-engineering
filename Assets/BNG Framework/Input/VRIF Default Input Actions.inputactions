@@ -458,7 +458,7 @@
                     "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Generic XR Controller",
+                    "groups": "",
                     "action": "Slow Time",
                     "isComposite": false,
                     "isPartOfComposite": false
