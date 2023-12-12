@@ -167,6 +167,10 @@ public class CheckTicket : MonoBehaviour
         else
         { // Otherwise the ticket was not filled in correctly and the button should display "rejected, try again"
             this.onClickPopup.text = "The ticket is rejected, you did not fill it in correctly. Try again.";
+            Debug.Log(errorSelected + " " + this.correctErrorSelected);
+            Debug.Log(serverSelected + " " + this.correctServerSelected);
+            Debug.Log(rackSelected + " " + this.correctRackSelected);
+            Debug.Log(hardwareSelected + " " + this.correctHardwareSelected);
         }
     }
 
