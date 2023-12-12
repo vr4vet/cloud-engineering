@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _subtaskName: Prepare for Maintenance
   _description: Before you can do the maintenance, you first need to go the security
-    room and talk to the head of security. They will give you a key to the right
+    office and talk to the head of security. They will give you a key to the right
     cabinet.
   _autocompleate: 1
   _stepList:
