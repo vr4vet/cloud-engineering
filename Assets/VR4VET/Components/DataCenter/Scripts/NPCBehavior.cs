@@ -254,7 +254,7 @@ public class NPCBehavior : MonoBehaviour
                 this.DisplayText("Here is the key for " + this.matchedSubstring + ".");
 
                 taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Get the Keys for the Cabinet").SetCompleated(true);
-                taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Enter Security Room").SetCompleated(true);
+                taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Enter Security Office").SetCompleated(true);
                 taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Talk to Security NPC").SetCompleated(true);
             }
             else if (this.keyInstantiated && !this.ticketFinished)
@@ -265,10 +265,7 @@ public class NPCBehavior : MonoBehaviour
             {
                 this.DestroyKey();
                 this.DisplayText("Thank you for handing in the key.");
-                //Activity activity = DataCenterScenario.Instance.PerformMaintenanceTask.ReturnCabinetKey;
-                //DataCenterScenario.Instance.SetActivityCompleted(activity, true);
 
-                Debug.Log("Still need to check handing in key is set to completed");
                 taskHolder.GetTask("Close Ticket").GetSubtask("Return the Key").SetCompleated(true);
             }
 

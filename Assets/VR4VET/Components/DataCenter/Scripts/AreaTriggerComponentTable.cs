@@ -14,7 +14,7 @@ public class AreaTriggerComponentTable : MonoBehaviour
         if (other.CompareTag("Player") && taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").Compleated())
         {
             // Player entered the trigger area
-            taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Check Out Component Table").SetCompleated(true);
+            taskHolder.GetTask("Perform Maintenance").GetSubtask("Perform Maintenance").GetStep("Check Out Component Table").SetCompleated(true);
         }
     }
 }
