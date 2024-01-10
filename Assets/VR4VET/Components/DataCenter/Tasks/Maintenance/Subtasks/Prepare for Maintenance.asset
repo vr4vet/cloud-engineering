@@ -15,7 +15,8 @@ MonoBehaviour:
   _subtaskName: Prepare for Maintenance
   _description: Before you can do the maintenance, you first need to go the security
     office and talk to the head of security. They will give you a key to the right
-    cabinet.
+    cabinet. Look at the step menu to see what steps you need to take to be prepared
+    for the maintenance.
   _autocompleate: 1
   _stepList:
   - {fileID: 11400000, guid: fd555f0d115f59d4185102d07cac8fad, type: 2}
