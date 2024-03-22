@@ -258,9 +258,10 @@ namespace Tablet
 
         public void TaskPageLoader(Task.Task task)
         {
+            Debug.Log("Task page loading");
             currentTask = task;
             //for extra events
-            if (_taskPageOpen != null) _taskPageOpen.Invoke();
+            if (_taskPageOpen != null) _taskPageOpen.Invoke(); 
 
             panelManager.OnClickBackToAboutTask();
 
@@ -269,13 +270,28 @@ namespace Tablet
             _taskAboutTab.text = task.Description;
             _taskFeedback.text = task.Feedback;
 
+            // Start a coroutine to wait for the child GameObjects to be destroyed
+            StartCoroutine(WaitForChildrenDestroyed(task));
+        }
+
+        IEnumerator WaitForChildrenDestroyed(Task.Task task)
+        {
             //cleaning list before loading the new subtasks
-            foreach (Transform child in TaskSubtaskContent.transform)
-            {
-                GameObject.Destroy(child.gameObject);
+            foreach(Transform child in TaskSubtaskContent.transform) {
+                Destroy(child.gameObject);
             }
+
+            // Wait until there are no more child GameObjects
+            while (TaskSubtaskContent.transform.childCount > 0)
+            {
+                yield return null; // Wait for the next frame
+            }
+
             if (task.Subtasks != null)
             {
+                // Create a list to store gameobjects from the subtasks list items
+                List<GameObject> childObjects = new List<GameObject>();
+
                 foreach (Task.Subtask sub in task.Subtasks)
                 {
                     //task for the list
@@ -293,9 +309,14 @@ namespace Tablet
                     GameObject checkmark = item.transform.Find("img_Checkmark").gameObject;
                     if (sub.Compleated()) checkmark.SetActive(true);
                     button.onClick.AddListener(() => SubTaskPageLoader(sub));
+                    childObjects.Add(item);
                 }
             }
+
+            // Load the new subtask list
+            TaskSubtaskContent.GetComponent<ContentPageChanger>().Refresh();
         }
+
 
         public void SubTaskPageLoader(Task.Subtask subtask)
         {
@@ -311,11 +332,24 @@ namespace Tablet
             _subtaskNameTab.GetComponent<TMP_Text>().text = subtask.SubtaskName;
             _subtaskAboutTab.GetComponent<TMP_Text>().text = subtask.Description;
 
+            // Start a coroutine to wait for the child GameObjects to be destroyed
+            StartCoroutine(WaitForChildrenDestroyedSubtask(subtask));
+        }
+
+        IEnumerator WaitForChildrenDestroyedSubtask(Task.Subtask subtask)
+        {
             //cleaning list before loading the new subtasks
             foreach (Transform child in _subtaskContent.transform)
             {
-                GameObject.Destroy(child.gameObject);
+                Destroy(child.gameObject);
             }
+
+            // Wait until there are no more child GameObjects
+            while (_subtaskContent.transform.childCount > 0)
+            {
+                yield return null; // Wait for the next frame
+            }
+
             if (subtask.StepList != null)
             {
                 foreach (Task.Step step in subtask.StepList)
@@ -336,6 +370,9 @@ namespace Tablet
                     reps.text = step.RepetionsCompleated + "/" + step.RepetionNumber;
                 }
             }
+
+            // Load the new subtask list
+            _subtaskContent.GetComponent<ContentPageChanger>().Refresh();
         }
 
         public void updateCheckMarks()
