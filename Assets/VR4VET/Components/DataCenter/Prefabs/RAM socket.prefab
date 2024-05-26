@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 11860247629377186}
   - component: {fileID: 27248706422256766}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: GrabPoint Right (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 1831539893550777248}
   - component: {fileID: 7653793142556625066}
   - component: {fileID: 590758787200174425}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 8681020598780514560}
   - component: {fileID: 3636749148783912972}
   - component: {fileID: 9090454814245456422}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Bottom (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1397261028753504871}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Right Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3721570477974400177}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Left Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 7063676508450349497}
   - component: {fileID: 6681399623036821946}
   - component: {fileID: 7356607516883232605}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Alignment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 8626289778264403517}
   - component: {fileID: 7206556268106120196}
   - component: {fileID: 922553546778199030}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: RAM socket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 6461531395131435254}
   - component: {fileID: 9096811352951513993}
   - component: {fileID: 2976962832269883841}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 1873906267288879747}
   - component: {fileID: 8092105850556138173}
   - component: {fileID: 3408855119841345396}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Handle Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 6088221667541958100}
   - component: {fileID: 9110684693932639198}
   - component: {fileID: 5989546385907081502}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -980,7 +980,7 @@ GameObject:
   - component: {fileID: 6309036412482666551}
   - component: {fileID: 6942970797912994797}
   - component: {fileID: 829975673313714172}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Handle Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1236,7 +1236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3012495887822280604}
   - component: {fileID: 2829478325984281675}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: GrabPoint Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1292,7 +1292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6944390383492212753}
   - component: {fileID: 1777181474717845663}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: GrabPoint Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1348,7 +1348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2166635839735808291}
   - component: {fileID: 1873571654743287276}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: GrabPoint Left (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1429,7 +1429,7 @@ PrefabInstance:
     - target: {fileID: 292154147353046210, guid: 62f4987b7e086ff43ab61a31ee443048,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 292154147353046212, guid: 62f4987b7e086ff43ab61a31ee443048,
         type: 3}
@@ -1619,7 +1619,7 @@ PrefabInstance:
     - target: {fileID: 292154147459820179, guid: 62f4987b7e086ff43ab61a31ee443048,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 292154147459820179, guid: 62f4987b7e086ff43ab61a31ee443048,
         type: 3}

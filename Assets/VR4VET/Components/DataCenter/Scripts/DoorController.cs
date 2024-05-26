@@ -105,6 +105,7 @@ public class DoorController : MonoBehaviour
         this.hingeJoint = this.GetComponent<HingeJoint>();
         this.hingeMotor = this.hingeJoint.motor;
         this.LockDoor();
+        Debug.Log(this.hingeJoint);
 
         this.npcBehavior = GameObject.FindGameObjectWithTag("Character").GetComponent<NPCBehavior>();
     }
@@ -118,7 +119,7 @@ public class DoorController : MonoBehaviour
         {
             GameObject key = this.npcBehavior.GetKeyInstance();
             bool isKeyNearDoor = Vector3.Distance(this.transform.position, key.transform.position) < 2f;
-            if (isKeyNearDoor && this.npcBehavior.GetMatchedSubstring() == this.gameObject.transform.parent.gameObject.name.ToString())
+            if (isKeyNearDoor && this.npcBehavior.GetMatchedSubstring() == this.gameObject.transform.parent.transform.parent.gameObject.name.ToString())
             {
                 this.UnlockDoor();
             }
