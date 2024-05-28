@@ -118,7 +118,6 @@ public class DoorController : MonoBehaviour
         {
             GameObject key = this.npcBehavior.GetKeyInstance();
             bool isKeyNearDoor = Vector3.Distance(this.transform.position, key.transform.position) < 2f;
-            Debug.Log(this.hingeJoint.angle);
             if ((isKeyNearDoor || this.hingeJoint.angle < -3) && this.npcBehavior.GetMatchedSubstring() == this.gameObject.transform.parent.transform.parent.gameObject.name.ToString())
             {
                 this.UnlockDoor();
