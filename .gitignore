@@ -76,3 +76,4 @@ crashlytics-build.properties
 /[Aa]ssets/VR4VET/Scenes/MyScene.unity.meta
 
 CodeCoverage/
+bfg-1.14.0.jar
