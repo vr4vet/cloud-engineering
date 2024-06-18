@@ -48,6 +48,6 @@ public class DisplayRAMCapacity : MonoBehaviour
             capacity = this.GetComponent<RamComponent>().Capacity;
         }
 
-        this.textPrefab.GetComponent<TextMeshPro>().text = "RAM\n" + capacity + " GiB";
+        this.textPrefab.GetComponent<TextMeshPro>().text = "" + capacity + "\nGiB";
     }
 }
