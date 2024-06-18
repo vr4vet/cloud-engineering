@@ -98,7 +98,6 @@ namespace DataCenter.HardwareProblems
 
             // TODO: Still need to create steps for replacing broken RAM
 
-            Debug.Log("Still need to create steps for replacing broken RAM");
         }
 
         /// <summary>
@@ -154,11 +153,13 @@ namespace DataCenter.HardwareProblems
         {
             HardwareComponentSlot<RamComponent>[] allSlots = location.Server.GetHardwareComponentSlots<RamComponent>();
             List<HardwareComponentSlot<RamComponent>> slots = new();
+            Debug.Log($"All slots: {allSlots}");
 
             // Upgrade RAM modules in powers of 2 (1, 2, 4, 8, ...)
             int logMaxAmount = (int)Math.Ceiling(Math.Log(allSlots.Length, 2));
             int logAmount = random.Next(0, logMaxAmount + 1);
             int amount = Math.Min((int)Math.Pow(2, logAmount), allSlots.Length);
+            Debug.Log($"Amount: {amount}");
 
             // Divide the slots into n=amount groups, add the first slot of each group to the list
             for (int i = 0; i < amount; i++)
@@ -167,8 +168,12 @@ namespace DataCenter.HardwareProblems
                 slots.Add(allSlots[slotIndex]);
             }
 
+            Debug.Log($"Slots: {slots}");
+
             int log2Capacity = random.Next(4, 7); // 2^4 = 16 GiB, 2^5 = 32 GiB, 2^6 = 64 GiB
             int capacity = (int)Math.Pow(2, log2Capacity);
+
+            Debug.Log($"Capacity: {capacity}");
 
             UpgradeRam upgradeRam = new(location, slots, capacity);
             return upgradeRam;
@@ -197,18 +202,26 @@ namespace DataCenter.HardwareProblems
                 this.originalRamComponents.Add(slot, slot.Component);
             }
 
-            foreach (HardwareComponentSlot<RamComponent> slot in this.Slots)
+            foreach (HardwareComponentSlot<RamComponent> slot in slotsToFill)
             {
                 slot.IsComponentValid = () =>
                 {
+                    Debug.Log($"Is component valid, the slot that it is calld on: {slot}");
                     // TODO: Sometimes slot.Component.Capacity is null, need a fix for this
                     if (slot != null && slot.Component != null && slot.Component.Capacity != null && this.upgradeToCapacity != null)
                     {
-                        return slot.Component.Capacity == this.upgradeToCapacity;
+                        if (this.Slots.Contains(slot))
+                        {
+                            return slot.Component.Capacity == this.upgradeToCapacity;
+                        }
+                        else
+                        {
+                            return slot.Component.Capacity == oldCapacity;
+                        }
                     }
                     else
                     {
-                        return false;
+                        return true;
                     }
                 };
             }
