@@ -10,6 +10,7 @@ public class AreaTriggerComponentTable : MonoBehaviour
     // This method is called when another collider enters the trigger
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other);
         // Check if the entering collider is the player
         if (other.CompareTag("Player") && taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").Compleated())
         {

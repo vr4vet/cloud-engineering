@@ -206,7 +206,6 @@ namespace DataCenter.HardwareProblems
             {
                 slot.IsComponentValid = () =>
                 {
-                    Debug.Log($"Is component valid, the slot that it is calld on: {slot}");
                     // TODO: Sometimes slot.Component.Capacity is null, need a fix for this
                     if (slot != null && slot.Component != null && slot.Component.Capacity != null && this.upgradeToCapacity != null)
                     {

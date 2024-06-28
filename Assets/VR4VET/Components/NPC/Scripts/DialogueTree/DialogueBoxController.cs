@@ -112,6 +112,8 @@ public class DialogueBoxController : MonoBehaviour
         }
         if (dialogueTree.sections[section].endAfterDialogue)
         {
+            Task.TaskHolder taskHolder = FindObjectOfType<Task.TaskHolder>();
+            taskHolder.GetTask("Create a Ticket").GetSubtask("Listen to the Introduction").SetCompleated(true);
             OnDialogueEnded?.Invoke();
             ExitConversation();
             yield break;

@@ -17,13 +17,13 @@ MonoBehaviour:
     - 'Hello, and welcome to the data center. I will give you an introduction to
       this scenario.
 
-      
 
-      You can click on the white arrow with the blue
-      background to continue.'
+
+      You can click on the white arrow with the blue background
+      to continue.'
     - You will be assigned a small random task. You can find out which task if look
-      at the computers behind me. One computer will display an error message. The
-      other can be used to create a ticket, which will be your first task.
+      at the computers on your left. One computer will display an error message.
+      The other can be used to create a ticket, which will be your first task.
     - From that point forward, you should check the tablet that is in the left inventory
       slot. This inventory slot can be found on your hip.
     - While we are talking about inventories, you can use the Y-button (left controller,
@@ -62,22 +62,9 @@ MonoBehaviour:
         nextElement: 1
       - answerLabel: I understand the tablet but did not really listen on the introduction.
         nextElement: 0
-  - dialogue: []
-    endAfterDialogue: 0
-    branchPoint:
-      question: What are you waiting for? Get started! Please remember to look at
-        the tasks of the tablet if you get stuck.
-      answers:
-      - answerLabel: Let's GO!
-        nextElement: 3
-      - answerLabel: I have a very short term memory, please start the introduction
-          from the start.
-        nextElement: 0
-      - answerLabel: Actually, I am not ready... Can you explain more about the tablet?
-        nextElement: 1
   - dialogue:
-    - Why are you still standing here? Get to work! If you want me to start the introduction
-      again, then please walk away first.
+    - What are you waiting for? Get started! Please remember to look at the tasks
+      of the tablet if you get stuck.
     endAfterDialogue: 1
     branchPoint:
       question: 
