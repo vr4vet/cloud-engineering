@@ -77,3 +77,5 @@ crashlytics-build.properties
 
 CodeCoverage/
 bfg-1.14.0.jar
+/test_cloud_engineering_BackUpThisFolder_ButDontShipItWithYourGame
+/test_cloud_engineering_BurstDebugInformation_DoNotShip
