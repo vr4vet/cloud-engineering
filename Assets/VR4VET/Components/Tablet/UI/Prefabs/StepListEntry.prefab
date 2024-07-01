@@ -333,6 +333,7 @@ MonoBehaviour:
   checkmark: {fileID: 2827171410811353437}
   txt_name: {fileID: 2827171410916124009}
   txt_description: {fileID: 4688937409004903265}
+  associatedSubTask: {fileID: 0}
 --- !u!1 &5669888015155115961
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,8 +459,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 36.4, y: -0}
-  m_SizeDelta: {x: 107.9, y: 31}
+  m_AnchoredPosition: {x: 42.6, y: -0}
+  m_SizeDelta: {x: 156.3, y: 31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5664915820916414373
 CanvasRenderer:
@@ -491,8 +492,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Description
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cd474ced1fc50744992e9e0a2913d288, type: 2}
+  m_sharedMaterial: {fileID: -3529780374109977298, guid: cd474ced1fc50744992e9e0a2913d288,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -516,11 +518,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
+  m_fontSize: 17.35
   m_fontSizeBase: 15
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 8
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
@@ -552,7 +554,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 5, y: 5, z: 5, w: 5}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
