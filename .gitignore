@@ -76,3 +76,6 @@ crashlytics-build.properties
 /[Aa]ssets/VR4VET/Scenes/MyScene.unity.meta
 
 CodeCoverage/
+Assets/Oculus/Voice/Features/Telemetry/Plugins/SDKTelemetry.dll
+/test_cloud_engineering_BackUpThisFolder_ButDontShipItWithYourGame
+/test_cloud_engineering_BurstDebugInformation_DoNotShip
