@@ -12,98 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5a46bda3295124c99b0e6537ac7252, type: 3}
   m_Name: witai
   m_EditorClassIdentifier: 
-  _clientAccessToken: 2TLPDHKLQKS2ANVRHGSKTLCNS2NJ3UE3
+  _clientAccessToken: AJD4N67TG2V2TRDYCIBGW42YG6I37QZC
   _appInfo:
-    name: voice_sdk
-    id: 779010703981616
+    name: blue_sector
+    id: 962092302285985
     lang: en
     isPrivate: 1
-    createdAt: 2023-10-25T00:02:50-0700
+    createdAt: 2024-03-05T05:49:24-0800
     trainingStatus: 1
     lastTrainDuration: 0
     lastTrainedAt: 1969-12-31T16:00:00-0800
     nextTrainAt: 1969-12-31T16:00:00-0800
     intents: []
-    entities:
-    - name: ChessBoardLetter
-      id: 704547405179100
-      lookups:
-      - free-text
-      - keywords
-      roles:
-      - name: ChessBoardLetter
-        id: 2069451773420019
-      keywords:
-      - keyword: A
-        synonyms: []
-      - keyword: B
-        synonyms: []
-      - keyword: C
-        synonyms: []
-      - keyword: D
-        synonyms: []
-      - keyword: E
-        synonyms: []
-      - keyword: F
-        synonyms: []
-      - keyword: G
-        synonyms: []
-      - keyword: H
-        synonyms: []
-    - name: ColorName
-      id: 1169090897618806
-      lookups:
-      - free-text
-      - keywords
-      roles:
-      - name: ColorName
-        id: 720557926877664
-      keywords:
-      - keyword: black
-        synonyms: []
-      - keyword: blue
-        synonyms: []
-      - keyword: brown
-        synonyms: []
-      - keyword: gold
-        synonyms: []
-      - keyword: green
-        synonyms: []
-      - keyword: magenta
-        synonyms: []
-      - keyword: maroon
-        synonyms: []
-      - keyword: orange
-        synonyms: []
-      - keyword: pink
-        synonyms: []
-      - keyword: purple
-        synonyms: []
-      - keyword: red
-        synonyms: []
-      - keyword: violet
-        synonyms: []
-      - keyword: white
-        synonyms: []
-      - keyword: yellow
-        synonyms: []
-    - name: ShapeName
-      id: 3722693951335991
-      lookups:
-      - free-text
-      - keywords
-      roles:
-      - name: ShapeName
-        id: 721492916809142
-      keywords:
-      - keyword: capsule
-        synonyms: []
-      - keyword: cube
-        synonyms: []
-      - keyword: cylinder
-        synonyms: []
-      - keyword: sphere
-        synonyms: []
+    entities: []
     traits: []
     versionTags: []
     voices:

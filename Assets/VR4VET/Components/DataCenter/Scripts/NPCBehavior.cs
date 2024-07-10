@@ -251,7 +251,7 @@ public class NPCBehavior : MonoBehaviour
             else if (!this.keyInstantiated)
             {
                 this.InstantiateKey();
-                this.DisplayText("Here is the key for " + this.matchedSubstring + ".");
+                this.DisplayText("Here is the key for " + this.matchedSubstring + ". You can put it in your inventory on your right hip. With the key in your inventory, you can open the closet.");
 
                 taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Get the Keys for the Cabinet").SetCompleated(true);
                 taskHolder.GetTask("Perform Maintenance").GetSubtask("Prepare for Maintenance").GetStep("Enter Security Office").SetCompleated(true);
@@ -264,7 +264,7 @@ public class NPCBehavior : MonoBehaviour
             else if (this.keyInstantiated && this.ticketFinished)
             {
                 this.DestroyKey();
-                this.DisplayText("Thank you for handing in the key.");
+                this.DisplayText("Thank you for handing in the key. The experience is now done. You did well!");
 
                 taskHolder.GetTask("Close Ticket").GetSubtask("Return the Key").SetCompleated(true);
             }
@@ -286,7 +286,7 @@ public class NPCBehavior : MonoBehaviour
     {
         if (this.textInstance == null)
         {
-            this.textInstance = Instantiate(this.textPrefab, this.transform.position + (Vector3.up * 2.5f), Quaternion.identity);
+            this.textInstance = Instantiate(this.textPrefab, this.transform.position + (Vector3.up * 3.5f), Quaternion.identity);
         }
 
         // Update the text content

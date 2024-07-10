@@ -20,7 +20,12 @@ MonoBehaviour:
 
     Install new RAM modules, each with capacity 8 GiB, into DIMM Slot
     A1, DIMM Slot A2 and DIMM Slot B1. Don''t forget to turn the server off before
-    maintenance on the wall in the server room.'
+    maintenance on the wall in the server room.
+
+
+    You can turn the server on
+    and off using the screens on the wall in the server room. When you selected the
+    right cabinet and rack, you can use the button on the top right.'
   _autocompleate: 1
   _stepList:
   - {fileID: 11400000, guid: 5c1f3b42812dc2b41b5cbc9e9201158f, type: 2}
