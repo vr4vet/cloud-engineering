@@ -57,20 +57,6 @@ namespace DataCenter.HardwareProblems
             }
 
             this.Slots = slots;
-
-            //foreach (var slot in slots)
-            //{
-            //    Activity activity = new()
-            //    {
-            //        aktivitetName = $"Install new HDD into {slot.name}.",
-            //        AktivitetIsCompeleted = false,
-            //    };
-            //    this.Activities.Add(activity);
-            //    this.slotToActivity.Add(slot, activity);
-            //}
-
-            // TODO: Create steps to install HDDs
-            Debug.Log("Need to create steps for installing HDDs");
         }
 
         /// <summary>
@@ -189,15 +175,6 @@ namespace DataCenter.HardwareProblems
             {
                 throw new ArgumentException("The component is null.");
             }
-
-            //this.slotToActivity
-            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
-            //    .Select(slotToActivity => slotToActivity.Value)
-            //    .ToList()
-            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, true));
-
-            // TODO: Set slot to activity to true
-            Debug.Log("Still need to set slot to activity to true add HDD");
         }
 
         /// <summary>
@@ -214,15 +191,6 @@ namespace DataCenter.HardwareProblems
             {
                 throw new ArgumentException("The component is null.");
             }
-
-            //this.slotToActivity
-            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
-            //    .Select(slotToActivity => slotToActivity.Value)
-            //    .ToList()
-            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, false));
-
-            // TODO: Set slot to activity to false
-            Debug.Log("Still need to set slot to activity to false add HDD");
         }
     }
 }

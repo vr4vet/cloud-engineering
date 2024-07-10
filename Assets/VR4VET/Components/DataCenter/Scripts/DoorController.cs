@@ -101,7 +101,6 @@ public class DoorController : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        Debug.Log("DoorController script loaded");
         this.hingeJoint = this.GetComponent<HingeJoint>();
         this.hingeMotor = this.hingeJoint.motor;
         this.LockDoor();

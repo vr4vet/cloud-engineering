@@ -95,10 +95,6 @@ public class HardwareProblemGenerator : MonoBehaviour
     public IEnumerable<Type> GetAllHardwareProblemTypes()
     {
         Type[] allTypes = Assembly.GetExecutingAssembly().GetTypes();
-        foreach (Type type in allTypes.Where(t => t.IsClass && !t.IsAbstract && t.BaseType == typeof(HardwareProblemType)))
-        {
-            Debug.Log(type);
-        }
         return allTypes
             .Where(t => t.IsClass && !t.IsAbstract && t.BaseType == typeof(HardwareProblemType));
     }

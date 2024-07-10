@@ -76,28 +76,6 @@ namespace DataCenter.HardwareProblems
             this.Slots = slots;
             this.upgradeToCapacity = upgradeToCapacity;
 
-            //foreach (var slot in slots)
-            //{
-            //    Activity activity = new()
-            //    {
-            //        aktivitetName = $"Remove RAM module from {slot.name}.",
-            //    };
-            //    this.Activities.Add(activity);
-            //    this.slotToRemoveActivity.Add(slot, activity);
-            //}
-
-            //foreach (var slot in slots)
-            //{
-            //    Activity activity = new()
-            //    {
-            //        aktivitetName = $"Install {upgradeToCapacity} GiB RAM into {slot.name}.",
-            //    };
-            //    this.Activities.Add(activity);
-            //    this.slotToInstallActivity.Add(slot, activity);
-            //}
-
-            // TODO: Still need to create steps for replacing broken RAM
-
         }
 
         /// <summary>
@@ -241,27 +219,6 @@ namespace DataCenter.HardwareProblems
             {
                 throw new ArgumentException("The component is null.");
             }
-
-            // TODO: Check if the RAM module is the correct capacity
-            // If the newly installed RAM module is not the original RAM module, the activity of installing the RAM module is completed.
-            //this.slotToInstallActivity
-            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
-            //    .Where(slotToActivity => !this.originalRamComponents.ContainsKey(slotToActivity.Key)
-            //        || (this.originalRamComponents.TryGetValue(slotToActivity.Key, out RamComponent originalComponent) && e.Component != originalComponent))
-            //    .Select(slotToActivity => slotToActivity.Value)
-            //    .ToList()
-            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, true));
-
-            //// If the RAM newly installed module is the original RAM module, the activity of removing the RAM module is uncompleted.
-            //this.slotToRemoveActivity
-            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
-            //    .Where(slotToActivity => this.originalRamComponents.TryGetValue(slotToActivity.Key, out RamComponent originalComponent) && e.Component == originalComponent)
-            //    .Select(slotToActivity => slotToActivity.Value)
-            //    .ToList()
-            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, false));
-
-            // TODO: Set slot to remove to false or slot to install to true
-            Debug.Log("Still need to set slot to remove to false or slot to install to true");
         }
 
         /// <summary>
@@ -277,17 +234,6 @@ namespace DataCenter.HardwareProblems
             {
                 throw new ArgumentException("The component is null.");
             }
-
-            // If the RAM module is the original RAM module, the activity of removing the RAM module is completed.
-            //this.slotToRemoveActivity
-            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
-            //    .Where(slotToActivity => this.originalRamComponents.TryGetValue(slotToActivity.Key, out RamComponent originalComponent) && e.Component == originalComponent)
-            //    .Select(slotToActivity => slotToActivity.Value)
-            //    .ToList()
-            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, true));
-
-            // TODO: Set slot to remove to true
-            Debug.Log("Still need to set slot to remove task in upgrade Ram to True");
         }
 
         /// <inheritdoc/>

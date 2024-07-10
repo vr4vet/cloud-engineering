@@ -134,7 +134,7 @@ public class ServerPopulator : MonoBehaviour
             }
             catch (Exception ex)
             {
-                Debug.Log("Problem with hddcomponent");
+
             }
             slot.GetComponentInChildren<GreenLightLogic>().TurnControlLightOn();
         }

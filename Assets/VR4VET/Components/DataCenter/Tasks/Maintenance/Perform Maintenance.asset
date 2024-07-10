@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Perform Maintenance
   m_EditorClassIdentifier: 
   _taskName: Perform Maintenance
-  _description: Perform the maintenance that you created the ticket for.
+  _description: Perform the maintenance that you created the ticket for. The subtasks
+    provide more information on what to do.
   _autocompleate: 1
   _subtasks:
   - {fileID: 11400000, guid: 348582931dbacbe4c849289c3c1f5ed2, type: 2}
