@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e00f7924afa24219a5197b2a8fa8d48, type: 3}
+  m_Name: Data Center NPC
+  m_EditorClassIdentifier: 
+  sections:
+  - dialogue:
+    - 'Hello, and welcome to the data center. I will give you an introduction to
+      this scenario.
+
+
+
+      You can click on the white arrow with the blue background
+      to continue.'
+    - You will be assigned a small random task. You can find out which task if look
+      at the computers on your left. One computer will display an error message.
+      The other can be used to create a ticket, which will be your first task.
+    - From that point forward, you should check the tablet that is in the left inventory
+      slot. This inventory slot can be found on your hip.
+    - While we are talking about inventories, you can use the Y-button (left controller,
+      upper button next to the joy-stick) to activate your inventory. Put an object
+      in the inventory and it will hold that item for you until you need it. You
+      can close the inventory with the same button as that you opened it with.
+    endAfterDialogue: 0
+    branchPoint:
+      question: Please remember, that if you are lost, you can look at the tablet
+        for more information. Would you like more information about the tablet, or
+        are you ready to go?
+      answers:
+      - answerLabel: Sorry, I did not listen to you. Could you please repeat what
+          you were saying?
+        nextElement: 0
+      - answerLabel: Please tell me more about the tablet.
+        nextElement: 1
+      - answerLabel: I am ready to go!
+        nextElement: 2
+  - dialogue:
+    - The tablet is located in the inventory on your left hip. You can grab it out
+      of the inventory.
+    - If you click on the tasks, you will see multiple tasks. Each task has a description
+      and a list of subtasks.
+    - If you click on a subtask, you can see the description of the subtasks and
+      a list of steps.
+    - The steps are necessary to complete the subtask. Once a step, subtask or task
+      is completed, a checkmark will be shown.
+    endAfterDialogue: 0
+    branchPoint:
+      question: Are you ready to go now?
+      answers:
+      - answerLabel: Yes!
+        nextElement: 2
+      - answerLabel: No, can you repeat yourself about the tablet?
+        nextElement: 1
+      - answerLabel: I understand the tablet but did not really listen on the introduction.
+        nextElement: 0
+  - dialogue:
+    - What are you waiting for? Get started! Please remember to look at the tasks
+      of the tablet if you get stuck.
+    endAfterDialogue: 1
+    branchPoint:
+      question: 
+      answers: []

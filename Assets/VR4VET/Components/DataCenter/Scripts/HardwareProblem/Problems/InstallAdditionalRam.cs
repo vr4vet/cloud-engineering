@@ -181,16 +181,6 @@ namespace DataCenter.HardwareProblems
             {
                 throw new ArgumentException("The component is null.");
             }
-
-            // TODO: Check if the RAM module is the correct capacity
-            //this.slotToActivity
-            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
-            //    .Select(slotToActivity => slotToActivity.Value)
-            //    .ToList()
-            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, true));
-
-            // TODO: set slot to activity to true
-            Debug.Log("Still need to set slot to activity to true!");
         }
 
         /// <summary>
@@ -207,15 +197,6 @@ namespace DataCenter.HardwareProblems
             {
                 throw new ArgumentException("The component is null.");
             }
-
-            //this.slotToActivity
-            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
-            //    .Select(slotToActivity => slotToActivity.Value)
-            //    .ToList()
-            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, false));
-
-            // TODO: Set slot to activity to false
-            Debug.Log("Still need to set slot to activity to false!");
         }
 
         /// <inheritdoc/>

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Create Ticket
   m_EditorClassIdentifier: 
   _subtaskName: Create Ticket
-  _description: Create a ticket on the computer in the hallway.
+  _description: In the hallway there are two computers between the security office
+    and the server room. The right screen shows you a problem of which you need to
+    create a ticket on the left screen.
   _autocompleate: 0
   _stepList: []

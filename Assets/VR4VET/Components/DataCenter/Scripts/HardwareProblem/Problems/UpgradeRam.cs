@@ -76,29 +76,6 @@ namespace DataCenter.HardwareProblems
             this.Slots = slots;
             this.upgradeToCapacity = upgradeToCapacity;
 
-            //foreach (var slot in slots)
-            //{
-            //    Activity activity = new()
-            //    {
-            //        aktivitetName = $"Remove RAM module from {slot.name}.",
-            //    };
-            //    this.Activities.Add(activity);
-            //    this.slotToRemoveActivity.Add(slot, activity);
-            //}
-
-            //foreach (var slot in slots)
-            //{
-            //    Activity activity = new()
-            //    {
-            //        aktivitetName = $"Install {upgradeToCapacity} GiB RAM into {slot.name}.",
-            //    };
-            //    this.Activities.Add(activity);
-            //    this.slotToInstallActivity.Add(slot, activity);
-            //}
-
-            // TODO: Still need to create steps for replacing broken RAM
-
-            Debug.Log("Still need to create steps for replacing broken RAM");
         }
 
         /// <summary>
@@ -154,11 +131,13 @@ namespace DataCenter.HardwareProblems
         {
             HardwareComponentSlot<RamComponent>[] allSlots = location.Server.GetHardwareComponentSlots<RamComponent>();
             List<HardwareComponentSlot<RamComponent>> slots = new();
+            Debug.Log($"All slots: {allSlots}");
 
             // Upgrade RAM modules in powers of 2 (1, 2, 4, 8, ...)
             int logMaxAmount = (int)Math.Ceiling(Math.Log(allSlots.Length, 2));
             int logAmount = random.Next(0, logMaxAmount + 1);
             int amount = Math.Min((int)Math.Pow(2, logAmount), allSlots.Length);
+            Debug.Log($"Amount: {amount}");
 
             // Divide the slots into n=amount groups, add the first slot of each group to the list
             for (int i = 0; i < amount; i++)
@@ -167,8 +146,12 @@ namespace DataCenter.HardwareProblems
                 slots.Add(allSlots[slotIndex]);
             }
 
+            Debug.Log($"Slots: {slots}");
+
             int log2Capacity = random.Next(4, 7); // 2^4 = 16 GiB, 2^5 = 32 GiB, 2^6 = 64 GiB
             int capacity = (int)Math.Pow(2, log2Capacity);
+
+            Debug.Log($"Capacity: {capacity}");
 
             UpgradeRam upgradeRam = new(location, slots, capacity);
             return upgradeRam;
@@ -197,18 +180,25 @@ namespace DataCenter.HardwareProblems
                 this.originalRamComponents.Add(slot, slot.Component);
             }
 
-            foreach (HardwareComponentSlot<RamComponent> slot in this.Slots)
+            foreach (HardwareComponentSlot<RamComponent> slot in slotsToFill)
             {
                 slot.IsComponentValid = () =>
                 {
                     // TODO: Sometimes slot.Component.Capacity is null, need a fix for this
                     if (slot != null && slot.Component != null && slot.Component.Capacity != null && this.upgradeToCapacity != null)
                     {
-                        return slot.Component.Capacity == this.upgradeToCapacity;
+                        if (this.Slots.Contains(slot))
+                        {
+                            return slot.Component.Capacity == this.upgradeToCapacity;
+                        }
+                        else
+                        {
+                            return slot.Component.Capacity == oldCapacity;
+                        }
                     }
                     else
                     {
-                        return false;
+                        return true;
                     }
                 };
             }
@@ -229,27 +219,6 @@ namespace DataCenter.HardwareProblems
             {
                 throw new ArgumentException("The component is null.");
             }
-
-            // TODO: Check if the RAM module is the correct capacity
-            // If the newly installed RAM module is not the original RAM module, the activity of installing the RAM module is completed.
-            //this.slotToInstallActivity
-            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
-            //    .Where(slotToActivity => !this.originalRamComponents.ContainsKey(slotToActivity.Key)
-            //        || (this.originalRamComponents.TryGetValue(slotToActivity.Key, out RamComponent originalComponent) && e.Component != originalComponent))
-            //    .Select(slotToActivity => slotToActivity.Value)
-            //    .ToList()
-            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, true));
-
-            //// If the RAM newly installed module is the original RAM module, the activity of removing the RAM module is uncompleted.
-            //this.slotToRemoveActivity
-            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
-            //    .Where(slotToActivity => this.originalRamComponents.TryGetValue(slotToActivity.Key, out RamComponent originalComponent) && e.Component == originalComponent)
-            //    .Select(slotToActivity => slotToActivity.Value)
-            //    .ToList()
-            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, false));
-
-            // TODO: Set slot to remove to false or slot to install to true
-            Debug.Log("Still need to set slot to remove to false or slot to install to true");
         }
 
         /// <summary>
@@ -265,17 +234,6 @@ namespace DataCenter.HardwareProblems
             {
                 throw new ArgumentException("The component is null.");
             }
-
-            // If the RAM module is the original RAM module, the activity of removing the RAM module is completed.
-            //this.slotToRemoveActivity
-            //    .Where(slotToActivity => slotToActivity.Key == e.Slot)
-            //    .Where(slotToActivity => this.originalRamComponents.TryGetValue(slotToActivity.Key, out RamComponent originalComponent) && e.Component == originalComponent)
-            //    .Select(slotToActivity => slotToActivity.Value)
-            //    .ToList()
-            //    .ForEach(activity => DataCenterScenario.Instance.SetActivityCompleted(activity, true));
-
-            // TODO: Set slot to remove to true
-            Debug.Log("Still need to set slot to remove task in upgrade Ram to True");
         }
 
         /// <inheritdoc/>

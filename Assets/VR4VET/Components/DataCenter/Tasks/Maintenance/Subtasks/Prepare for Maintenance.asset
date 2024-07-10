@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: Prepare for Maintenance
   m_EditorClassIdentifier: 
   _subtaskName: Prepare for Maintenance
-  _description: Before you can do the maintenance, you first need to go the security
+  _description: 'Before you can do the maintenance, you first need to go the security
     office and talk to the head of security. They will give you a key to the right
     cabinet. Look at the step menu to see what steps you need to take to be prepared
     for the maintenance.
+
+
+    It might be good to check the video''s on the component
+    table because these will show you how maintenance is done.'
   _autocompleate: 1
   _stepList:
   - {fileID: 11400000, guid: fd555f0d115f59d4185102d07cac8fad, type: 2}
