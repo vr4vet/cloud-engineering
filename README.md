@@ -2,7 +2,7 @@
 
 # VR Data Center Internship Scenario
 
-Welcome to the VR Data Center Internship Scenario! This immersive experience offers an exciting opportunity to explore the world of data centers and gain practical knowledge through virtual reality (VR) simulations. This README.md file serves as a guide to help you navigate through the internship scenario and get the most out of your learning journey.
+Welcome to the VR Data Center Internship Scenario! This immersive experience offers an exciting opportunity to explore the world of data centers and gain practical knowledge through virtual reality (VR) simulations. This README.md file serves as a guide to install the 
 
 ## Table of Contents
 
@@ -14,7 +14,7 @@ Welcome to the VR Data Center Internship Scenario! This immersive experience off
 
 ## Overview
 
-In this VR data center internship scenario, you will step into the shoes of a data center intern and take on various tasks and challenges related to managing and maintaining a data center environment. The scenario is designed to provide you with hands-on experience and insights into the world of data centers, including networking, infrastructure, security, and more.
+In this VR data center internship scenario, you will step into the shoes of a data center intern and take on various tasks and challenges related to managing and maintaining a data center environment. The scenario is designed to provide you with hands-on experience and insights into the world of data centers, including networking, infrastructure, security, and more. The user is guided with the use of the tablet. The tablet contains tasks and subtasks that are stored within the taskholder, which is present in the hierachy of the scene. The player can also be guided by the NPC, this might be a more natural way of guiding the player.
 
 ## Getting Started
 
@@ -27,43 +27,30 @@ Instalation/Requirements
 2. Clone the Develop branch using git clone.
 3. Open unity
 4. Go to ‘Window’ -> ‘Package manage’ and make sure Open XR Plugin is installed. If  already there ignore this step.
+5. Within Assets there is an empty folder called BNG framework. This contents of the folder are not allowed to be in a public git. Ask coworkers for the contents of this folder.
 6. Load the Data Center Scene 
-5. Follow the in-app instructions to begin your internship scenario.
 
 ## Usage
 
 During the VR data center internship scenario, you will encounter various tasks and challenges that simulate real-world scenarios. You will be guided through these tasks and provided with instructions and resources to complete them successfully. Make sure to take advantage of the interactive nature of the VR environment and explore different aspects of data center operations.
 
-## Testing
-
-To ensure a smooth experience with the VR data center internship scenario, we have written two types of tests: edit mode tests and play mode tests.
-
-### Edit Mode Tests
-
-The edit mode tests are designed to validate the functionality of the VR data center scenario in the Unity editor. These tests focus on verifying the correctness of scripts, components, and interactions within the editor environment.
-
-To run the edit mode tests:
-
-1. Open the Unity editor.
-2. From the top menu, go to **Window > General > Test Runner**. This will open the Unity Test Runner window.
-3. In the Test Runner window, select the **Edit Mode** tab.
-4. Click on the **Run All** button to execute all the edit mode tests.
-
-### Play Mode Tests
-
-The play mode tests allow you to test the VR data center scenario while it is running in the Unity editor. These tests validate the behavior and functionality of the scenario from the perspective of a user interacting with the VR environment.
-
-To run the play mode tests:
-1. Open the Unity editor.
-2. go to projectssettings.asset text file and change the playModeTestRunnerEnabled: 0 to playModeTestRunnerEnabled: 1
-3. From the top menu, go to **Window > General > Test Runner**. This will open the Unity Test Runner window.
-4. In the Test Runner window, select the **Play Mode** tab.
-5. Click on the **Run All** button to execute all the play mode tests.
-
-Please note that before running the tests, ensure that you have selected the appropriate tests in the Unity Test Runner window. This allows you to choose specific tests or groups of tests to run, providing more flexibility in the testing process.
-
-We recommend regularly running these tests to catch any potential issues and ensure the integrity of the VR data center internship scenario.
-
 ## Code
 
-The source code for the VR data center internship scenario can be found in the [src](Assets/VR4VET/Components/DataCenter) directory of this repository. You are encouraged to explore the code, make modifications, and customize the scenario to suit your specific needs. In this folder we have scripts, prefabs, tests and scenes. 
+The source code for the VR data center internship scenario can be found in the [src](Assets/VR4VET/Components/DataCenter) directory of this repository. All changes made for this scenario specifically should be within this folder. For the prefab folder, try to only have prefabs used in the scene in the folder and use folders when a prefab is made from different materials and textures etc.
+
+The scenario uses a lot of prefabs from the core repository, these can be implemented using packages, which can be found in the releases of the core repository.
+
+## Sideloading to the Quest headset
+
+There is a text file on the VR4VET computer on the desktop with instructions on how to load the application onto the headset. This file also contains the password for signing the application.
+
+## Releases
+For every update in the scenario, a release should be made. For the release notes please use the following structure:
+### **Added:**
+- Something new in the build that was not present in the previous build.
+### **Changed**
+- Something that has changed in comparison to the last build.
+### **Fixed:**
+- Problems/bugs that were present in the last build that are fixed.
+
+The release should always have a signed build next to its source code.
