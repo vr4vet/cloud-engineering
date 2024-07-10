@@ -13,10 +13,17 @@ MonoBehaviour:
   m_Name: Perform Maintenance 1
   m_EditorClassIdentifier: 
   _subtaskName: Perform Maintenance
-  _description: Now that you are prepared for the maintenance it is time to perform
-    it!
+  _description: 'Now that you are prepared for the maintenance it is time to perform
+    it! The client has ordered additional RAM for server ''Server 3.2'' in ''Closet
+    3''.
+
+
+    Install new RAM modules, each with capacity 8 GiB, into DIMM Slot
+    A1, DIMM Slot A2 and DIMM Slot B1. Don''t forget to turn the server off before
+    maintenance on the wall in the server room.'
   _autocompleate: 1
   _stepList:
+  - {fileID: 11400000, guid: 5c1f3b42812dc2b41b5cbc9e9201158f, type: 2}
   - {fileID: 11400000, guid: 04d38baff33de1f4aa8107238d9c34a1, type: 2}
   - {fileID: 11400000, guid: fe648648e9a203a4dacc0237824f50f3, type: 2}
   - {fileID: 11400000, guid: e08e40eb15487f44bb981168b86ef124, type: 2}
